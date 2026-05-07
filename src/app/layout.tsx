@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Ibrahim Hussein Project Archive",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Project Archive | Ibrahim Hussein",
     description:
       "A complete archive of every project built by Ibrahim Hussein.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
