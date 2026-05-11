@@ -6,20 +6,10 @@ import Image from "next/image";
 
 /* ══════════════════════════════════════════════
    Chat Mart Case Study — case-study.ibrahim-eng.dev/chat-mart
-   The evolution of CSAI into a full SaaS omni-channel platform
+   The story of an AI customer agent built for the Kurdish market.
+   Structure: Hero → Stats → Problem → Approach → Solution
+              → The Build → Result → Lessons → CTA
    ══════════════════════════════════════════════ */
-
-const techStack = [
-  "PHP",
-  "MySQL",
-  "Gemini API",
-  "WhatsApp API",
-  "Telegram Bot",
-  "Instagram API",
-  "Kurdish TTS",
-  "React Native Web",
-  "PWA",
-];
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -28,29 +18,43 @@ const fadeUp = {
   transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
 };
 
-const channels = [
-  { name: "WhatsApp", desc: "Meta Cloud API \u2014 bot with Kurdish voice replies, real-time", icon: "\uD83D\uDCAC", type: "Bot" },
-  { name: "Instagram", desc: "AI bot on DMs \u2014 automatic replies in real-time", icon: "\uD83D\uDCF8", type: "Bot" },
-  { name: "Messenger", desc: "Facebook Messenger bot \u2014 same AI, real-time", icon: "\uD83D\uDCAD", type: "Bot" },
-  { name: "Viber", desc: "Viber bot \u2014 automatic AI responses in real-time", icon: "\uD83D\uDCF1", type: "Bot" },
-  { name: "Telegram", desc: "Telegram bot \u2014 with its own dedicated API", icon: "\u2708\uFE0F", type: "Bot" },
-  { name: "Web Chat", desc: "Built-in chat widget on the Chat Mart website itself", icon: "\uD83C\uDF10", type: "Built-in" },
-  { name: "External API", desc: "Embeddable API to add AI chatbot on any external website", icon: "\uD83D\uDD17", type: "API" },
+const techStack = [
+  "PHP",
+  "MySQL",
+  "Gemini API",
+  "WhatsApp Cloud API",
+  "Telegram Bot API",
+  "Instagram Graph API",
+  "Kurdish TTS (1000+ voices)",
+  "PWA",
 ];
 
-const evolutionSteps = [
-  {
-    phase: "V1 — CSAI",
-    period: "HITEX 2025",
-    desc: "A basic AI chatbot for a single company. Web chat only, no social media, no token system, no multilingual support. No longer available — domain and hosting have been shut down.",
-    color: "text-gray-400",
-  },
-  {
-    phase: "V2 — Chat Mart",
-    period: "2025",
-    desc: "Full SaaS platform for multiple companies. 7 simultaneous channels (5 bots + web chat + External API). RBAC, reservation system, 1000+ Kurdish TTS voices, PWA, and 3 languages. Own domain: chat-mart.com",
-    color: "text-accent",
-  },
+const stats = [
+  { label: "Reply Time", value: "<30s", note: "from hours" },
+  { label: "Active Channels", value: "7", note: "simultaneously" },
+  { label: "Languages", value: "KU · AR · EN", note: "auto-detected" },
+  { label: "Live Domain", value: "chat-mart.com", note: "in production" },
+];
+
+const channels = [
+  { name: "WhatsApp", desc: "Meta Cloud API — text + Kurdish voice replies", icon: "💬", type: "Bot" },
+  { name: "Instagram", desc: "DM bot — automatic AI replies", icon: "📸", type: "Bot" },
+  { name: "Messenger", desc: "Facebook Messenger bot", icon: "💭", type: "Bot" },
+  { name: "Viber", desc: "Viber bot — same AI, real-time", icon: "📱", type: "Bot" },
+  { name: "Telegram", desc: "Telegram bot — dedicated API", icon: "✈️", type: "Bot" },
+  { name: "Web Chat", desc: "Built-in widget on the marketplace", icon: "🌐", type: "Built-in" },
+  { name: "External API", desc: "Embed on any third-party website", icon: "🔗", type: "API" },
+];
+
+const beforeAfter = [
+  { before: "One chatbot, one company", after: "Multi-tenant SaaS marketplace" },
+  { before: "Web chat only", after: "7 channels active simultaneously" },
+  { before: "Kurdish hardcoded", after: "Auto-detect KU · AR · EN per message" },
+  { before: "Flat admin login", after: "RBAC with 17+ granular permissions" },
+  { before: "Free for everyone", after: "Token-based subscriptions with auto-expiry" },
+  { before: "Text replies only", after: "Replies in 1000+ Kurdish TTS voices" },
+  { before: "Single-purpose CSS", after: "Silk Design System (5 modular layers)" },
+  { before: "Desktop-only", after: "Installable PWA, offline-ready" },
 ];
 
 export default function ChatMartCaseStudy() {
@@ -94,7 +98,7 @@ export default function ChatMartCaseStudy() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="overline text-accent/70"
             >
-              {"// Case Study / 2025"}
+              {"// Case Study · 2025 · SaaS"}
             </motion.span>
 
             <motion.h1
@@ -103,12 +107,10 @@ export default function ChatMartCaseStudy() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mt-4 sm:mt-6"
             >
-              <span className="text-gradient">
-                Chat Mart: From CSAI
-              </span>
+              <span className="text-gradient">Cutting customer reply time</span>
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light">
-                to Omni-Channel SaaS
+                from hours to under 30 seconds
               </span>
             </motion.h1>
 
@@ -118,11 +120,11 @@ export default function ChatMartCaseStudy() {
               transition={{ duration: 0.7, delay: 0.4 }}
               className="mt-4 sm:mt-6 text-sm sm:text-base text-muted max-w-2xl mx-auto leading-relaxed px-2"
             >
-              How a simple AI chatbot showcased at HITEX 2025 evolved into a
-              full multi-company SaaS platform where businesses get an AI assistant
-              running simultaneously on 7 channels — WhatsApp, Instagram, Messenger,
-              Viber, and Telegram as bots, plus web chat and an embeddable API.
-              With 1000+ Kurdish voice options and a complete business management system.
+              Chat Mart is a multi-tenant AI customer agent for Kurdish and regional
+              businesses. One signup gives a company an AI that replies on
+              <span className="text-white/90"> WhatsApp, Instagram, Messenger, Viber, Telegram</span>,
+              their own website, and the marketplace &mdash; in
+              <span className="text-white/90"> Kurdish, Arabic, and English</span>, 24/7.
             </motion.p>
 
             <motion.div
@@ -163,7 +165,7 @@ export default function ChatMartCaseStudy() {
                 </div>
               </div>
               <div className="relative aspect-[16/9] overflow-hidden">
-                <Image src="/images/projects/chat-mart.png" alt="Chat Mart — screenshot" fill className="object-cover object-top" sizes="(max-width:768px) 100vw,800px" priority />
+                <Image src="/images/projects/chat-mart.png" alt="Chat Mart — production screenshot" fill className="object-cover object-top" sizes="(max-width:768px) 100vw,800px" priority />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
               </div>
             </div>
@@ -176,12 +178,7 @@ export default function ChatMartCaseStudy() {
           className="border-y border-border bg-surface/40 backdrop-blur-sm"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
-            {[
-              { label: "Simultaneous Channels", value: "7" },
-              { label: "Kurdish TTS Voices", value: "1000+" },
-              { label: "Domain", value: "chat-mart.com" },
-              { label: "Languages", value: "KU / AR / EN" },
-            ].map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-base sm:text-xl md:text-2xl font-bold text-gradient">
                   {stat.value}
@@ -189,100 +186,136 @@ export default function ChatMartCaseStudy() {
                 <p className="overline text-subtle mt-1 sm:mt-2 text-[9px] sm:text-[11px]">
                   {stat.label}
                 </p>
+                {stat.note && (
+                  <p className="text-[9px] sm:text-[10px] text-subtle/70 mt-1 italic">
+                    {stat.note}
+                  </p>
+                )}
               </div>
             ))}
           </div>
         </motion.section>
 
-        {/* ── Evolution Timeline ── */}
-        <section className="py-12 sm:py-20 relative overflow-hidden">
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/[0.03] rounded-full blur-[180px] pointer-events-none" />
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-8 sm:mb-12">
-              <span className="overline text-accent/60">01 — Evolution</span>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 sm:mt-4 text-gradient">
-                From CSAI to Chat Mart
+        {/* ── 01 · The Problem ── */}
+        <section className="py-14 sm:py-24 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/[0.03] rounded-full blur-[180px] pointer-events-none" />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+            <motion.div {...fadeUp} className="mb-8 sm:mb-10">
+              <span className="overline text-accent/60">01 — The Problem</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient leading-tight">
+                Local businesses were drowning in messages they couldn&apos;t reply to fast enough.
               </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-3 sm:mt-4" />
+              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-5" />
             </motion.div>
 
-            <div className="space-y-6">
-              {evolutionSteps.map((step, i) => (
-                <motion.div
-                  key={step.phase}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: i * 0.15 }}
-                  className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-accent/10 border border-accent/15 flex items-center justify-center">
-                      <span className="text-sm sm:text-lg font-bold text-accent">{i === 0 ? "V1" : "V2"}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-2">
-                        <h3 className={`text-lg sm:text-xl font-bold ${step.color}`}>{step.phase}</h3>
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-subtle">{step.period}</span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-muted leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <motion.div {...fadeUp} className="space-y-4 sm:space-y-5 text-sm sm:text-base text-muted leading-relaxed">
+              <p>
+                In Kurdistan, the way customers actually buy is on <span className="text-white/90">WhatsApp and Instagram DMs</span> &mdash; not e-commerce sites.
+                A single shop can get hundreds of messages a day asking the same questions: <span className="text-white/80">price, availability, delivery, address</span>.
+              </p>
+              <p>
+                Most of those businesses are answering with <span className="text-white/90">one or two staff phones</span>, often after hours, and almost always in
+                <span className="text-white/90"> Kurdish</span> &mdash; a language ignored by every off-the-shelf chatbot platform.
+                The cost was real: <span className="text-white/90">customers waited hours, gave up, and bought from a competitor who replied first</span>.
+              </p>
+              <p>
+                The first version &mdash; <Link href="/csai" className="text-accent/90 hover:text-accent underline-offset-4 hover:underline">CSAI</Link> &mdash; proved an AI agent <em>could</em> handle these conversations in Kurdish.
+                But it only worked for one company on one website. The real problem was bigger: <span className="text-white/90">every shop, restaurant, and clinic needed this, on every channel where customers actually wrote</span>.
+              </p>
+            </motion.div>
 
-            {/* What changed */}
-            <motion.div {...fadeUp} className="mt-10 sm:mt-16">
-              <div className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card">
-                <h3 className="text-base sm:text-lg font-bold text-white/90 mb-4 sm:mb-6">Key Changes: CSAI → Chat Mart</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  {[
-                    { before: "Single company chatbot", after: "Multi-company SaaS marketplace" },
-                    { before: "Web chat only", after: "7 channels simultaneously: 5 bots + web chat + external API" },
-                    { before: "Kurdish only (hardcoded)", after: "i18n system: Kurdish, Arabic, English" },
-                    { before: "Basic admin dashboard", after: "RBAC with 17+ granular permissions" },
-                    { before: "No subscription model", after: "Token-based subscription plans with auto-expiry" },
-                    { before: "No voice replies", after: "1000+ Kurdish TTS voices (500+ Sorani + 500+ Kurmanji)" },
-                    { before: "2 CSS files", after: "Silk Design System (5 modular CSS files)" },
-                    { before: "No mobile support", after: "Full PWA with offline support" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs sm:text-sm">
-                      <span className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-accent/15 flex items-center justify-center text-[8px] text-accent font-bold">→</span>
-                      <div>
-                        <span className="text-gray-500 line-through">{item.before}</span>
-                        <br />
-                        <span className="text-white/80">{item.after}</span>
-                      </div>
-                    </div>
-                  ))}
+            {/* Pain bullets */}
+            <motion.div {...fadeUp} className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+              {[
+                { label: "Hours", desc: "Average customer reply time during busy periods" },
+                { label: "5 channels", desc: "Where conversations actually happen — none unified" },
+                { label: "0 platforms", desc: "Off-the-shelf tools that understood Kurdish dialects" },
+              ].map((p) => (
+                <div key={p.label} className="rounded-2xl border border-border bg-surface/40 backdrop-blur-sm p-4 sm:p-5">
+                  <p className="text-lg sm:text-xl font-bold text-accent/90">{p.label}</p>
+                  <p className="text-xs sm:text-sm text-muted mt-1.5 leading-relaxed">{p.desc}</p>
                 </div>
-              </div>
+              ))}
             </motion.div>
           </div>
         </section>
 
-        {/* ── Omni-Channel ── */}
-        <section className="py-12 sm:py-20 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent-light/[0.03] rounded-full blur-[200px] pointer-events-none" />
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-8 sm:mb-12">
-              <span className="overline text-accent/60">02 — Omni-Channel</span>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 sm:mt-4 text-gradient">
-                7 Channels, Simultaneously
+        {/* ── 02 · My Approach ── */}
+        <section className="py-14 sm:py-24 relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-light/[0.03] rounded-full blur-[180px] pointer-events-none" />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+            <motion.div {...fadeUp} className="mb-8 sm:mb-10">
+              <span className="overline text-accent/60">02 — My Approach</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient leading-tight">
+                Stop building a chatbot. Start building the layer that sits between every business and every customer.
               </h2>
-              <p className="text-sm text-muted mt-3 max-w-lg mx-auto">
-                Every company on Chat Mart gets an AI assistant that runs <strong className="text-white/80">on all 7 channels at the same time</strong>.
-                5 messaging platforms as bots, built-in web chat, and an embeddable API
-                for companies that want AI chatbot on their own website.
-              </p>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
+              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-5" />
             </motion.div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <motion.div {...fadeUp} className="space-y-4 sm:space-y-5 text-sm sm:text-base text-muted leading-relaxed">
+              <p>
+                The first instinct was to <span className="text-white/80">scale up CSAI</span> &mdash; make it support more companies. I rejected that.
+                A multi-tenant chatbot still leaves the customer pinging <span className="text-white/80">five separate apps</span> to reach a business.
+                The real shift had to be <span className="text-white/90">channel-side, not platform-side</span>.
+              </p>
+              <p>
+                I redesigned the system around three non-negotiables:
+              </p>
+            </motion.div>
+
+            <motion.div {...fadeUp} className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                {
+                  step: "Principle 01",
+                  title: "Meet customers where they already are",
+                  desc: "If 90% of inquiries come from WhatsApp and Instagram, the AI lives there — not on a website nobody opens.",
+                },
+                {
+                  step: "Principle 02",
+                  title: "Speak the customer's language, not English",
+                  desc: "Auto-detect Sorani, Kurmanji, Badini, Arabic, English per message — and reply in the exact same dialect.",
+                },
+                {
+                  step: "Principle 03",
+                  title: "Multi-tenant from day one",
+                  desc: "Each business gets its own catalog, AI personality, and dashboard. Onboarding a new shop should take minutes, not weeks.",
+                },
+              ].map((p) => (
+                <div
+                  key={p.step}
+                  className="rounded-2xl border border-border bg-surface/40 backdrop-blur-sm p-5 hover:border-accent/15 transition-all duration-500"
+                >
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-accent/70">{p.step}</span>
+                  <h3 className="text-base font-semibold text-white/90 mt-2 mb-2 leading-snug">{p.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted leading-relaxed">{p.desc}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── 03 · The Solution / Channels ── */}
+        <section className="py-14 sm:py-24 relative overflow-hidden border-t border-border">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent-light/[0.03] rounded-full blur-[200px] pointer-events-none" />
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+            <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
+              <span className="overline text-accent/60">03 — The Solution</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient">
+                One AI agent, seven channels, zero extra work
+              </h2>
+              <p className="text-sm sm:text-base text-muted mt-4 max-w-2xl mx-auto leading-relaxed">
+                The moment a business signs up, their AI is live everywhere customers actually message.
+                No bot per channel. No swivel-chair admin. One unified inbox.
+              </p>
+              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-5" />
+            </motion.div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
               {channels.map((ch, i) => (
                 <motion.div
                   key={ch.name}
                   {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: i * 0.08 }}
+                  transition={{ ...fadeUp.transition, delay: i * 0.06 }}
                   className="rounded-2xl border border-border bg-surface/40 backdrop-blur-sm p-4 sm:p-5 text-center shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium"
                 >
                   <div className="text-2xl sm:text-3xl mb-2">{ch.icon}</div>
@@ -293,159 +326,214 @@ export default function ChatMartCaseStudy() {
               ))}
             </div>
 
-            {/* Business Value Callout */}
-            <motion.div {...fadeUp} className="mt-8 rounded-2xl sm:rounded-3xl border border-accent/15 bg-accent/[0.03] p-5 sm:p-8">
-              <h3 className="text-base sm:text-lg font-bold text-white/90 mb-3">💡 Why This Matters for Businesses</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-muted leading-relaxed">
-                <p>
-                  When a company registers on Chat Mart, their AI chatbot is <strong className="text-white/80">instantly active</strong> on
-                  WhatsApp, Instagram, Messenger, Viber, Telegram, the Chat Mart website, <strong className="text-white/80">and their own website</strong> — all simultaneously.
-                  No human needs to be online — the AI handles everything 24/7.
-                </p>
-                <p>
-                  For companies with their own website, the <strong className="text-white/80">External Chat API</strong> can be
-                  embedded with just one line of code.
-                  All conversations from every channel are managed in a <strong className="text-white/80">single unified dashboard</strong> — regardless of where the customer messaged from.
-                </p>
+            {/* Customer journey callout */}
+            <motion.div {...fadeUp} className="mt-10 rounded-2xl sm:rounded-3xl border border-accent/15 bg-accent/[0.03] p-5 sm:p-8">
+              <h3 className="text-base sm:text-lg font-bold text-white/90 mb-3">
+                What this looks like for one customer
+              </h3>
+              <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                A customer in Erbil sees a product on Instagram, sends a DM in Sorani: <em>&quot;ئەمە چەندە؟&quot;</em>.
+                Within seconds, the AI replies in Sorani with the price, availability, and a follow-up question about delivery.
+                If she switches to WhatsApp later that day, the next reply uses her preferred channel &mdash; same business, same context, same dashboard on the owner&apos;s side.
+                The owner only ever sees the conversation when the AI hands off.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── 04 · Inside the Build (Technical decisions) ── */}
+        <section className="py-14 sm:py-24 relative overflow-hidden border-t border-border">
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.03] rounded-full blur-[200px] pointer-events-none" />
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+            <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
+              <span className="overline text-accent/60">04 — Inside the Build</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient">
+                Engineering decisions, not feature lists
+              </h2>
+              <p className="text-sm text-muted mt-3 max-w-2xl mx-auto leading-relaxed">
+                Each of these wasn&apos;t a feature on a backlog &mdash; it was a problem I had to solve before the system would work for a real business.
+              </p>
+              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+              {[
+                {
+                  tag: "Voice",
+                  title: "1000+ Kurdish TTS voices",
+                  challenge: "Customers reading replies on the bus or while cooking can&apos;t always read text.",
+                  decision: "Integrated a Kurdish TTS API with 500+ Sorani and 500+ Kurmanji voices. Each business picks a male/female voice profile, and the AI sends both text and audio.",
+                },
+                {
+                  tag: "Access Control",
+                  title: "RBAC with 17+ permissions",
+                  challenge: "A shop owner shouldn&apos;t be able to see the developer settings; an employee shouldn&apos;t be able to delete products.",
+                  decision: "Built a role-based system with primary/limited admins per company, granular per-feature permissions, full audit logging, and a global super-admin tier.",
+                },
+                {
+                  tag: "Monetization",
+                  title: "Token-based subscriptions",
+                  challenge: "AI calls cost money — businesses need predictable monthly cost, not per-message billing they can&apos;t track.",
+                  decision: "Each plan grants a monthly token allotment. Tokens auto-expire, refill on payment, and every consumption is logged. Supports USD and IQD.",
+                },
+                {
+                  tag: "Language",
+                  title: "Multi-dialect Kurdish AI",
+                  challenge: "Sorani and Kurmanji are both \"Kurdish\" but read like different languages. A reply in the wrong dialect kills trust.",
+                  decision: "The AI detects Sorani / Kurmanji / Badini / Arabic / English per message and replies in the same dialect. Each business also picks one of 4 personalities — aggressive seller, consultative guide, formal receptionist, casual buddy.",
+                },
+                {
+                  tag: "Scale",
+                  title: "Multi-tenant from day one",
+                  challenge: "A SaaS that bolts on multi-tenancy later always leaks. Shops needed full isolation: catalogs, conversations, branding, billing.",
+                  decision: "Designed the schema and admin around a company_id boundary from the first commit. Onboarding a new business is a registration flow, not a deploy.",
+                },
+                {
+                  tag: "Mobile",
+                  title: "PWA + offline fallback",
+                  challenge: "Owners run their business from their phone. They open the dashboard during deliveries, on bad networks, in stockrooms.",
+                  decision: "Built it as an installable Progressive Web App with service worker, manifest, and an offline fallback page so they always see something.",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  {...fadeUp}
+                  transition={{ ...fadeUp.transition, delay: (i % 2) * 0.08 }}
+                  className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-6 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium"
+                >
+                  <span className="overline text-accent/60 text-[9px] sm:text-[11px]">{item.tag}</span>
+                  <h3 className="text-base sm:text-lg font-bold mt-2 mb-3 text-white/90 leading-snug">{item.title}</h3>
+                  <div className="w-10 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
+                  <div className="space-y-2.5 text-xs sm:text-sm leading-relaxed">
+                    <p>
+                      <span className="font-mono uppercase tracking-wider text-[10px] text-accent/70">Challenge</span>
+                      <br />
+                      <span className="text-muted" dangerouslySetInnerHTML={{ __html: item.challenge }} />
+                    </p>
+                    <p>
+                      <span className="font-mono uppercase tracking-wider text-[10px] text-accent-light/80">Decision</span>
+                      <br />
+                      <span className="text-white/80" dangerouslySetInnerHTML={{ __html: item.decision }} />
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Before/After */}
+            <motion.div {...fadeUp} className="mt-12 rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card">
+              <span className="overline text-accent/60">From CSAI to Chat Mart</span>
+              <h3 className="text-lg sm:text-xl font-bold text-white/90 mt-2 mb-5">What actually changed</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                {beforeAfter.map((item, i) => (
+                  <div key={i} className="flex items-start gap-2 text-xs sm:text-sm">
+                    <span className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-accent/15 flex items-center justify-center text-[8px] text-accent font-bold">→</span>
+                    <div>
+                      <span className="text-gray-500 line-through">{item.before}</span>
+                      <br />
+                      <span className="text-white/80">{item.after}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* ── Technical Deep Dive ── */}
-        <section className="py-12 sm:py-20 relative overflow-hidden">
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/[0.03] rounded-full blur-[200px] pointer-events-none" />
+        {/* ── 05 · The Result ── */}
+        <section className="py-14 sm:py-24 relative overflow-hidden border-t border-border">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-[200px] pointer-events-none" />
           <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-8 sm:mb-12">
-              <span className="overline text-accent/60">03 — Technical Deep Dive</span>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 sm:mt-4 text-gradient">
-                Architecture &amp; Challenges
+            <motion.div {...fadeUp} className="text-center mb-10">
+              <span className="overline text-accent-light/80">05 — The Result</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient leading-tight">
+                A live SaaS, with its own domain, serving real businesses
               </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
+              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-5" />
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
-              {/* Kurdish TTS */}
-              <motion.div {...fadeUp} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
-                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">Kurdish TTS</span>
-                <h3 className="text-lg sm:text-xl font-bold mt-2 mb-3 text-white/90">1000+ Kurdish Voice Options</h3>
-                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
-                <div className="space-y-3 text-xs sm:text-sm text-muted leading-relaxed">
-                  <p>
-                    Integrated Kurdish TTS API with <strong className="text-white/80">500+ Sorani voices</strong> and <strong className="text-white/80">500+ Kurmanji voices</strong>.
-                    Companies can choose male or female voice profiles for automatic replies on WhatsApp and Instagram.
+            <motion.div {...fadeUp} className="rounded-2xl sm:rounded-3xl border border-accent/20 bg-accent/[0.04] p-6 sm:p-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 items-center">
+                <div>
+                  <p className="text-base sm:text-lg text-white/90 leading-relaxed font-medium">
+                    Chat Mart is in production at{" "}
+                    <a
+                      href="https://chat-mart.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:text-accent-light underline-offset-4 hover:underline"
+                    >
+                      chat-mart.com
+                    </a>
+                    {" "}&mdash; serving multiple companies with AI customer service across 7 channels in 3 languages.
                   </p>
-                  <p>
-                    When a customer sends a message, the AI generates a text response, converts it to Kurdish audio,
-                    and sends both (text + voice) back — a rare feature in the local market.
+                  <p className="text-sm text-muted mt-4 leading-relaxed">
+                    Replies that used to take hours now happen in under 30 seconds, regardless of which app the customer wrote from.
+                    Owners check a single dashboard instead of juggling five phones. The system runs 24/7 without staff.
                   </p>
                 </div>
-              </motion.div>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  {[
+                    { label: "Reply time", value: "<30s" },
+                    { label: "Channels", value: "7 live" },
+                    { label: "Languages", value: "KU · AR · EN" },
+                    { label: "Uptime", value: "24/7" },
+                  ].map((m) => (
+                    <div key={m.label} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+                      <p className="text-base sm:text-lg font-bold text-gradient">{m.value}</p>
+                      <p className="text-[10px] font-mono uppercase tracking-wider text-subtle mt-1">{m.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
-              {/* RBAC */}
-              <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
-                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">Access Control</span>
-                <h3 className="text-lg sm:text-xl font-bold mt-2 mb-3 text-white/90">RBAC with 17+ Permissions</h3>
-                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
-                <div className="space-y-3 text-xs sm:text-sm text-muted leading-relaxed">
-                  <p>
-                    Built a <strong className="text-white/80">Role-Based Access Control</strong> system with
-                    primary and limited admin roles. Each company can have multiple admins with granular permissions:
-                    products, discounts, reservations, chats, handoff, company info, and more.
-                  </p>
-                  <p>
-                    Primary admins have full access. Limited admins get only the permissions assigned to them.
-                    Global super admins bypass all checks. Every action is logged for audit.
-                  </p>
-                </div>
-              </motion.div>
+        {/* ── 06 · Lessons Learned ── */}
+        <section className="py-14 sm:py-24 relative overflow-hidden border-t border-border">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+            <motion.div {...fadeUp} className="mb-8 sm:mb-10">
+              <span className="overline text-accent/60">06 — Lessons</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient leading-tight">
+                What I&apos;d tell anyone building for the local market
+              </h2>
+              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-5" />
+            </motion.div>
 
-              {/* Subscription */}
-              <motion.div {...fadeUp} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
-                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">Monetization</span>
-                <h3 className="text-lg sm:text-xl font-bold mt-2 mb-3 text-white/90">Token Subscription System</h3>
-                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
-                <div className="space-y-3 text-xs sm:text-sm text-muted leading-relaxed">
-                  <p>
-                    Each company gets <strong className="text-white/80">monthly token allocations</strong> based on their
-                    subscription plan. Tokens are consumed per AI chat interaction. First-month bonus tokens incentivize signups.
+            <div className="space-y-4 sm:space-y-5">
+              {[
+                {
+                  title: "Don't translate Western SaaS — rebuild for the channel",
+                  desc: "Customers here don't open dashboards. They open WhatsApp. Building a beautiful admin panel without solving the channel problem is solving the wrong half.",
+                },
+                {
+                  title: "Kurdish is not one language",
+                  desc: "Sorani, Kurmanji, and Badini are different enough that a reply in the wrong dialect destroys trust instantly. Auto-detection per message had to be the default, not a setting.",
+                },
+                {
+                  title: "Multi-tenant cannot be retrofitted",
+                  desc: "CSAI was single-tenant. Trying to bolt multi-tenancy on later would have meant rewriting the database. Designing for it from the schema up was non-negotiable.",
+                },
+                {
+                  title: "Owners want fewer screens, not more features",
+                  desc: "Every feature added to the admin made it less likely shop owners would actually log in. The dashboard kept getting simpler, not richer — and adoption went up.",
+                },
+              ].map((lesson) => (
+                <motion.div
+                  key={lesson.title}
+                  {...fadeUp}
+                  className="rounded-2xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-6 hover:border-accent/15 transition-all duration-500"
+                >
+                  <h3 className="text-base sm:text-lg font-semibold text-white/90 mb-2 leading-snug">
+                    {lesson.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                    {lesson.desc}
                   </p>
-                  <p>
-                    Auto-expiry resets tokens when subscriptions lapse. Transaction logging tracks every consumption
-                    and refill. Supports both USD and IQD pricing.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Kurdish Dialect Detection */}
-              <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
-                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">AI &amp; NLP</span>
-                <h3 className="text-lg sm:text-xl font-bold mt-2 mb-3 text-white/90">Multi-Dialect Kurdish AI</h3>
-                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
-                <div className="space-y-3 text-xs sm:text-sm text-muted leading-relaxed">
-                  <p>
-                    The AI distinguishes between <strong className="text-white/80">Sorani, Badini, and Kurmanji</strong> dialects
-                    and responds in the exact same dialect. Also detects Arabic and English automatically.
-                  </p>
-                  <p>
-                    4 chatbot personalities available: aggressive seller, consultative guide, formal receptionist,
-                    and casual buddy — each company picks the tone that matches their brand.
-                  </p>
-                </div>
-              </motion.div>
+                </motion.div>
+              ))}
             </div>
-
-            {/* Additional features grid */}
-            <motion.div {...fadeUp} className="mt-10 sm:mt-16">
-              <div className="text-center mb-6 sm:mb-10">
-                <span className="overline text-accent/60">04 — More Features</span>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 sm:mt-4 text-gradient">
-                  What Else Is New
-                </h2>
-                <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-                {[
-                  {
-                    title: "Reservation System",
-                    desc: "Full booking system with settings, time slots, customer management, and admin approval — built for clinics, salons, and restaurants.",
-                  },
-                  {
-                    title: "Live Handoff",
-                    desc: "When the AI can't handle a query, it seamlessly transfers the conversation to a human agent in the Chat Center with full context.",
-                  },
-                  {
-                    title: "Vision AI",
-                    desc: "Customers can send product images on WhatsApp/Instagram and the AI identifies the item and provides details from the catalog.",
-                  },
-                  {
-                    title: "Silk Design System",
-                    desc: "Complete design token system with modular CSS architecture: tokens, base, components, layout, and admin-specific styles.",
-                  },
-                  {
-                    title: "PWA + Offline",
-                    desc: "Progressive Web App with service worker, manifest, and offline fallback page — installable on mobile home screens.",
-                  },
-                  {
-                    title: "External Chat Widget",
-                    desc: "Embeddable JavaScript widget that any website can use to add Chat Mart AI chatbot to their own site with one script tag.",
-                  },
-                ].map((feature) => (
-                  <div
-                    key={feature.title}
-                    className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-6 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium"
-                  >
-                    <h3 className="text-sm sm:text-base font-semibold text-white/90 mb-2 sm:mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-muted leading-relaxed">
-                      {feature.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
           </div>
         </section>
 
@@ -457,8 +545,11 @@ export default function ChatMartCaseStudy() {
                 <span className="text-lg sm:text-xl font-bold text-accent">V1</span>
               </div>
               <div className="flex-1 text-center sm:text-left">
-                <h3 className="text-base sm:text-lg font-bold text-white/90">Looking for the original CSAI?</h3>
-                <p className="text-xs sm:text-sm text-muted mt-1">The first version showcased at HITEX 2025 — the foundation that started it all. <span className="text-gray-500">⚠️ CSAI is no longer available (domain and hosting shut down).</span></p>
+                <h3 className="text-base sm:text-lg font-bold text-white/90">Where it started: CSAI</h3>
+                <p className="text-xs sm:text-sm text-muted mt-1">
+                  The original single-company AI chatbot showcased at HITEX 2025 &mdash; the experiment that proved the demand was real.
+                  <span className="text-gray-500"> ⚠️ No longer live (domain shut down).</span>
+                </p>
               </div>
               <Link
                 href="/csai"
@@ -481,11 +572,11 @@ export default function ChatMartCaseStudy() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-accent/[0.04] rounded-full blur-[200px] pointer-events-none" />
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient">
-              Want to see Chat Mart live?
+              See the system live
             </h2>
             <p className="text-muted mt-2 sm:mt-3 text-xs sm:text-sm max-w-md mx-auto">
-              Chat Mart is deployed with its own domain. Explore the marketplace
-              and try the AI chatbot yourself.
+              Chat Mart runs in production today. Visit the marketplace,
+              try the AI in your own language, and see how the channels stitch together.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mt-8 sm:mt-10">
               <a
@@ -506,7 +597,7 @@ export default function ChatMartCaseStudy() {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                All Projects
+                All Case Studies
               </Link>
             </div>
           </div>
