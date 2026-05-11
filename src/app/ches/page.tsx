@@ -58,12 +58,12 @@ export default function ChesCaseStudy() {
               {"// Case Study / 2024"}
             </motion.span>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }} className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mt-4 sm:mt-6">
-              <span className="text-gradient">Erbil Chess Academy</span>
+              <span className="text-gradient">Erbil Chess</span>
               <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light">Building Digital Presence for Kurdistan&apos;s Chess Community</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light">Academy</span>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }} className="mt-4 sm:mt-6 text-sm sm:text-base text-muted max-w-2xl mx-auto leading-relaxed px-2">
-              The official Erbil branch of the Asia Chess Federation had no online presence. I built them a full RTL Kurdish website with an activities system and admin panel—proving that local organizations deserve professional digital tools.
+              The official website for Erbil Chess Academy — the Erbil branch of the Asia Chess Federation. Full RTL Kurdish website with activities tracker, admin panel, member registration, and tournament management.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-10 px-2">
               {techStack.map((tech) => (
@@ -101,13 +101,14 @@ export default function ChesCaseStudy() {
           </div>
         </motion.section>
 
+        {/* Stats */}
         <motion.section {...fadeUp} className="border-y border-border bg-surface/40 backdrop-blur-sm">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
             {[
-              { label: "Timeline", value: "2 Weeks" },
+              { label: "Client", value: "Erbil Chess Academy" },
               { label: "Organization", value: "Asia Chess Federation" },
               { label: "Language", value: "Kurdish RTL" },
-              { label: "Status", value: "Live" },
+              { label: "Status", value: "Completed" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-base sm:text-xl md:text-2xl font-bold text-gradient">{stat.value}</p>
@@ -117,219 +118,63 @@ export default function ChesCaseStudy() {
           </div>
         </motion.section>
 
-        <section className="py-16 sm:py-24 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/[0.03] rounded-full blur-[200px] pointer-events-none" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
-              <span className="overline text-accent/60">01 &mdash; The Problem</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient">
-                No Digital Presence
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
-            </motion.div>
-
-            <motion.div {...fadeUp} className="prose prose-invert prose-sm sm:prose-base max-w-none">
-              <p className="text-muted leading-relaxed">
-                Erbil Chess Academy is the official Erbil branch of the <strong className="text-white/90">Asia Chess Federation</strong>—a 
-                legitimate, internationally recognized organization. But they had no website.
-              </p>
-              <p className="text-muted leading-relaxed mt-4">
-                Members couldn't find tournament schedules online. Parents couldn't see results. New participants had no way to 
-                learn about the academy or contact them. Everything was shared through <strong className="text-white/90">Facebook posts</strong> 
-                and word of mouth.
-              </p>
-              <p className="text-muted leading-relaxed mt-4">
-                They needed a professional website in <strong className="text-white/90">Kurdish (Sorani)</strong> with proper RTL layout, 
-                an activities system for posting tournament results and announcements, and an admin panel so they could manage 
-                content themselves.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="py-16 sm:py-24 border-t border-border bg-surface/20 relative overflow-hidden">
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent-light/[0.03] rounded-full blur-[180px] pointer-events-none" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
-              <span className="overline text-accent/60">02 &mdash; The Approach</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient">
-                Simple, Functional, Kurdish
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
-            </motion.div>
-
-            <motion.div {...fadeUp} className="prose prose-invert prose-sm sm:prose-base max-w-none">
-              <p className="text-muted leading-relaxed">
-                I kept the stack simple: <strong className="text-white/90">HTML, CSS, and vanilla JavaScript</strong>. No frameworks, 
-                no build tools—just clean, maintainable code that anyone could host and update.
-              </p>
-              <p className="text-muted leading-relaxed mt-4">
-                The entire site is <strong className="text-white/90">RTL (right-to-left)</strong> for Kurdish. Every element—navigation, 
-                typography, layout—flows naturally for Kurdish readers. This wasn't an afterthought; it was the foundation.
-              </p>
-              <p className="text-muted leading-relaxed mt-4">
-                I built a dynamic activities system that loads data via JavaScript, with live search and filtering. The admin panel 
-                is password-protected and lets academy staff add tournament results, events, and announcements without touching code.
-              </p>
-              <p className="text-muted leading-relaxed mt-4">
-                The goal: <strong className="text-white/90">give them independence</strong>. They shouldn't need a developer to update 
-                their own website.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="py-16 sm:py-24 border-t border-border relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/[0.04] rounded-full blur-[220px] pointer-events-none" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
-              <span className="overline text-accent/60">03 &mdash; The Solution</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient">
-                A Professional Kurdish Website
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
-            </motion.div>
-
-            <motion.div {...fadeUp} className="prose prose-invert prose-sm sm:prose-base max-w-none">
-              <p className="text-muted leading-relaxed">
-                The site has three main pages: a <strong className="text-white/90">homepage</strong> with hero section, about info, 
-                recent activities preview, and contact details; an <strong className="text-white/90">activities page</strong> with 
-                live search/filter and a chess knight loading animation; and a <strong className="text-white/90">password-protected 
-                admin panel</strong> for content management.
-              </p>
-              <p className="text-muted leading-relaxed mt-4">
-                Everything is in Kurdish (Sorani) with proper RTL layout. The activities system loads data dynamically and supports 
-                tournament results, events, and announcements. The admin panel is simple enough for non-technical staff to use.
-              </p>
-              <p className="text-muted leading-relaxed mt-4">
-                Contact information—email, phone, location, social media—is prominently displayed. The design is clean, professional, 
-                and reflects the academy's status as an official Asia Chess Federation branch.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="py-16 sm:py-24 border-t border-border bg-surface/20 relative overflow-hidden">
-          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.03] rounded-full blur-[200px] pointer-events-none" />
+        {/* Content */}
+        <section className="py-12 sm:py-20 md:py-28 relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/[0.03] rounded-full blur-[200px] pointer-events-none" />
           <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
-              <span className="overline text-accent/60">04 &mdash; Inside the Build</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient">
-                Key Features
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
-            </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-              {[
-                { title: "Full RTL Kurdish UI", desc: "Complete right-to-left layout for Kurdish (Sorani) with proper typography, navigation, and content structure." },
-                { title: "Activities System", desc: "Dynamic activities page with live search/filter, loading states, and JavaScript data loading for tournament results and events." },
-                { title: "Admin Panel", desc: "Password-protected dashboard for managing content, adding activities, and updating academy information without code." },
-                { title: "Homepage", desc: "Hero section, about the academy, recent activities preview, and contact info with email, phone, location, and social links." },
-                { title: "Responsive Design", desc: "Mobile-first layout that works on all devices with proper RTL support and Kurdish typography at every breakpoint." },
-                { title: "Simple Stack", desc: "HTML5, CSS3, vanilla JavaScript, and Font Awesome icons. No frameworks, no build tools—just clean, maintainable code." },
-              ].map((feature) => (
-                <motion.div
-                  key={feature.title}
-                  {...fadeUp}
-                  className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-6 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium"
-                >
-                  <h3 className="text-sm sm:text-base font-semibold text-white/90 mb-2 sm:mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </motion.div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
+              {/* Problem */}
+              <motion.div {...fadeUp} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">01 — The Problem</span>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 sm:mt-4 leading-snug text-gradient">Why I Built This</h2>
+                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-3 sm:mt-4 mb-4 sm:mb-6" />
+                <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-muted leading-relaxed">
+                  <p>Erbil Chess Academy — the official Erbil branch of the Asia Chess Federation — had no digital presence. Members and participants had no way to find schedules, results, or contact information online.</p>
+                  <p>The academy needed a professional website in Kurdish that reflected its status as an official international federation branch, with the ability to post activities and manage content through an admin panel.</p>
+                </div>
+              </motion.div>
+
+              {/* Solution */}
+              <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">02 — The Solution</span>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 sm:mt-4 leading-snug text-gradient">What Was Built</h2>
+                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-3 sm:mt-4 mb-4 sm:mb-6" />
+                <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-muted leading-relaxed">
+                  <p><strong className="text-white/80">Full RTL Kurdish UI:</strong> Complete right-to-left layout for Kurdish (Sorani) with proper typography, navigation, and content structure.</p>
+                  <p><strong className="text-white/80">Activities System:</strong> Dynamic activities page with search/filter, loading states, and data loaded via JavaScript — supporting tournament results, events, and announcements.</p>
+                  <p><strong className="text-white/80">Admin Panel:</strong> Password-protected admin dashboard for managing content, adding activities, and updating academy information.</p>
+                </div>
+              </motion.div>
             </div>
-          </div>
-        </section>
 
-        <section className="py-16 sm:py-24 border-t border-border relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent-light/[0.03] rounded-full blur-[200px] pointer-events-none" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
-              <span className="overline text-accent/60">05 &mdash; The Result</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient">
-                A Digital Home for Kurdistan&apos;s Chess Community
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
-            </motion.div>
-
-            <motion.div {...fadeUp} className="prose prose-invert prose-sm sm:prose-base max-w-none">
-              <p className="text-muted leading-relaxed">
-                The site launched in <strong className="text-white/90">2 weeks</strong> and gave the academy a professional online presence. 
-                Members can now find tournament schedules, parents can check results, and new participants can learn about the academy 
-                and contact them—all in Kurdish.
-              </p>
-              <p className="text-muted leading-relaxed mt-4">
-                The admin panel works exactly as intended: academy staff update content themselves without needing a developer. 
-                The activities system handles tournament results, events, and announcements with live search and filtering.
-              </p>
-              <p className="text-muted leading-relaxed mt-4">
-                This project proved that <strong className="text-white/90">local organizations deserve professional digital tools</strong>. 
-                You don't need a massive budget or complex infrastructure—just clean code, proper RTL support, and a focus on what matters.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="py-16 sm:py-24 border-t border-border bg-surface/20 relative overflow-hidden">
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/[0.03] rounded-full blur-[180px] pointer-events-none" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
-              <span className="overline text-accent/60">06 &mdash; Lessons Learned</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient">
-                What I'd Do Differently
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
-            </motion.div>
-
-            <motion.div {...fadeUp} className="space-y-6 sm:space-y-8">
-              <div className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-6 sm:p-8">
-                <h3 className="text-base sm:text-lg font-semibold text-white/90 mb-3">Simplicity is a Feature</h3>
-                <p className="text-xs sm:text-sm text-muted leading-relaxed">
-                  Using vanilla JavaScript instead of a framework made the site easier to maintain and host. Sometimes the simplest 
-                  solution is the right one—especially for clients who need independence, not complexity.
-                </p>
+            {/* Pages */}
+            <motion.div {...fadeUp} className="mt-10 sm:mt-16">
+              <div className="text-center mb-6 sm:mb-10">
+                <span className="overline text-accent/60">03 — Site Structure</span>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 sm:mt-4 leading-snug text-gradient">Pages & Features</h2>
+                <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-3 sm:mt-4" />
               </div>
-
-              <div className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-6 sm:p-8">
-                <h3 className="text-base sm:text-lg font-semibold text-white/90 mb-3">RTL Support is Non-Negotiable</h3>
-                <p className="text-xs sm:text-sm text-muted leading-relaxed">
-                  Building RTL support from the start—not as an afterthought—made the entire site feel natural for Kurdish readers. 
-                  Language support isn't a feature; it's respect.
-                </p>
-              </div>
-
-              <div className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-6 sm:p-8">
-                <h3 className="text-base sm:text-lg font-semibold text-white/90 mb-3">Local Organizations Matter</h3>
-                <p className="text-xs sm:text-sm text-muted leading-relaxed">
-                  This wasn't a high-budget project, but it mattered. Giving a local chess academy a professional digital presence 
-                  helps them serve their community better. Not every project needs to be a startup—some just need to work.
-                </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                {[
+                  { title: "Homepage (index.html)", desc: "Hero section, about the academy, recent activities preview, contact info with email, phone, location, and social media links." },
+                  { title: "Activities (activities.html)", desc: "Complete activities archive with live search filter. Loads all data dynamically via JavaScript. Chess knight animated loading spinner." },
+                  { title: "Admin Panel", desc: "Password-protected admin login page with a management dashboard for adding and editing academy activities and content." },
+                ].map((p) => (
+                  <div key={p.title} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-6 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+                    <h3 className="text-sm sm:text-base font-semibold text-white/90 mb-2 sm:mb-3">{p.title}</h3>
+                    <p className="text-xs sm:text-sm text-muted leading-relaxed">{p.desc}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
-          </div>
-        </section>
 
-        <section className="py-12 sm:py-16 border-t border-border bg-surface/30 relative overflow-hidden">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-
-            <motion.div {...fadeUp} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-6 sm:p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="shrink-0 w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-white/90">Client Information</h3>
-                  <p className="text-xs text-accent/60">Erbil Chess Academy</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pl-0 sm:pl-13">
+            {/* Contact Details */}
+            <motion.div {...fadeUp} className="mt-10 sm:mt-14 rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card">
+              <span className="overline text-accent/60 text-[9px] sm:text-[11px]">04 — Client Info</span>
+              <h2 className="text-xl sm:text-2xl font-bold mt-3 sm:mt-4 leading-snug text-gradient">Erbil Chess Academy</h2>
+              <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-3 mb-5" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { label: "Email", value: "erbilchessacademy@gmail.com" },
                   { label: "Phone", value: "+964 750 832 5657" },
@@ -345,19 +190,15 @@ export default function ChesCaseStudy() {
           </div>
         </section>
 
-        <motion.section {...fadeUp} className="border-t border-border py-16 sm:py-24 relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-[220px] pointer-events-none" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-            <motion.div {...fadeUp}>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient mb-4">
-                Need a Kurdish website?
-              </h2>
-              <p className="text-muted text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-                I've built multiple RTL Kurdish websites for real clients. If you need a professional digital presence 
-                for your organization, let's talk.
-              </p>
-            </motion.div>
-            <motion.div {...fadeUp} className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mt-8 sm:mt-10">
+        {/* CTA */}
+        <motion.section {...fadeUp} className="border-t border-border py-14 sm:py-20 relative overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-[200px] pointer-events-none" />
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient">See More Projects</h2>
+            <p className="text-muted mt-2 sm:mt-3 text-xs sm:text-sm max-w-md mx-auto">
+              Ashti Library is another Kurdish website built for a real client — with AI recommendations, RTL support, and WhatsApp ordering.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mt-8 sm:mt-10">
               <Link href="/ashti-library" className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm font-semibold bg-gradient-to-r from-accent to-accent-light text-primary shadow-glow-sm hover:shadow-glow transition-all duration-400 ease-premium">
                 View Ashti Library
                 <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -370,7 +211,7 @@ export default function ChesCaseStudy() {
                 </svg>
                 All Projects
               </Link>
-            </motion.div>
+            </div>
           </div>
         </motion.section>
       </main>

@@ -12,8 +12,6 @@ interface ArchiveProject {
   year: string;
   title: string;
   description: string;
-  problem?: string;
-  impact?: string;
   madeFor: string;
   tech: string[];
   image: string;
@@ -24,71 +22,11 @@ interface ArchiveProject {
 }
 
 const archiveProjects: ArchiveProject[] = [
-  {
-    year: "2025",
-    title: "CSAI — Customer Service AI",
-    description: "The first proof that a Kurdish-speaking AI agent could handle real customer questions without human help.",
-    problem: "Local businesses were losing customers because nobody could reply to inquiries fast enough — and no chatbot platform understood Kurdish.",
-    impact: "Showcased live at HITEX 2025; validated the demand and became the foundation for Chat Mart.",
-    madeFor: "HITEX 2025",
-    tech: ["Next.js", "Python", "AI"],
-    image: "/images/projects/csai.jpg",
-    category: "software",
-    status: "Completed",
-    link: "/csai",
-  },
-  {
-    year: "2025",
-    title: "Chat Mart — Omni-Channel SaaS",
-    description: "Helping local businesses cut customer reply time from hours to under 30 seconds with a multilingual AI agent across 7 channels.",
-    problem: "Shops drowned in WhatsApp and Instagram messages, with one staff phone replying in Kurdish hours later — customers gave up and bought from competitors.",
-    impact: "Live at chat-mart.com. Multiple companies now run AI customer service on WhatsApp, IG, Telegram, Viber, Messenger, web, and an embeddable API — all from one dashboard.",
-    madeFor: "Local Businesses",
-    tech: ["PHP", "Gemini API", "WhatsApp", "PWA"],
-    image: "/images/projects/chat-mart.png",
-    category: "software",
-    status: "Completed",
-    link: "/chat-mart",
-  },
-  {
-    year: "2025",
-    title: "Ashti Library",
-    description: "Bringing a Kurdish bookstore online for the first time — readers discover, browse, and order books in their own language via WhatsApp.",
-    problem: "Kurdish bookstores had no digital presence; readers couldn’t search or order in their native language without visiting in person.",
-    impact: "First production Kurdish bookstore platform with AI recommendations. Orders now happen digitally with direct WhatsApp integration for a real client in Erbil.",
-    madeFor: "Ashti Books, Erbil",
-    tech: ["PHP", "Gemini API", "RTL"],
-    image: "/images/projects/ashti-library.jpg",
-    category: "software",
-    status: "Completed",
-    link: "/ashti-library",
-  },
-  {
-    year: "2025",
-    title: "Bradaran — Car Dealership",
-    description: "Moving a Kurdish car dealership off paper and spreadsheets onto a single RTL platform — inventory, sales, and customers in real time.",
-    problem: "Dealerships tracked inventory, customers, and installment sales on paper and WhatsApp screenshots, with no centralized history.",
-    impact: "Deployed for a real dealership client. Multi-role staff now manage inventory, cash and installment sales, debt tracking, and financial reports through a PWA with push notifications.",
-    madeFor: "Car Dealership Client",
-    tech: ["PHP", "MySQL", "PWA", "Push"],
-    image: "/images/projects/bradar.png",
-    category: "software",
-    status: "Completed",
-    link: "/xara",
-  },
-  {
-    year: "2025",
-    title: "Dyari — Advanced Car Dealership",
-    description: "Scaling dealership operations for a larger client with separated operational/archival data and granular permissions per team.",
-    problem: "Bradaran was single-database; a larger dealership needed isolation between live and archived data, batch car imports, and finer per-staff permissions.",
-    impact: "Built for a 2025 client. Handles batch imports, gallery and individual deposits, advance payments, and automated receipts — each role only sees what they need.",
-    madeFor: "Car Dealership Client",
-    tech: ["PHP", "MySQL", "Dual DB", "PWA"],
-    image: "/images/projects/dyari-car.png",
-    category: "software",
-    status: "Completed",
-    link: "/diari",
-  },
+  { year: "2025", title: "CSAI — Customer Service AI", description: "Full-stack AI customer service platform with Kurdish language support, product catalog, and admin dashboard.", madeFor: "HITEX 2025", tech: ["Next.js", "Python", "AI"], image: "/images/projects/csai.jpg", category: "software", status: "Completed", link: "/csai" },
+  { year: "2025", title: "Chat Mart — Omni-Channel SaaS", description: "Evolution of CSAI into a multi-company marketplace with 5 messaging channels, Kurdish TTS voice replies, RBAC, reservation system, and PWA.", madeFor: "Businesses", tech: ["PHP", "Gemini API", "WhatsApp", "PWA"], image: "/images/projects/chat-mart.png", category: "software", status: "Completed", link: "/chat-mart" },
+  { year: "2025", title: "Ashti Library", description: "Kurdish bookstore website with AI chatbot, search/filtering, admin dashboard, and WhatsApp ordering. Built for a real client in Erbil.", madeFor: "Ashti Books, Erbil", tech: ["PHP", "Gemini API", "RTL"], image: "/images/projects/ashti-library.jpg", category: "software", status: "Completed", link: "/ashti-library" },
+  { year: "2025", title: "Bradaran — Car Dealership", description: "Complete car dealership management: inventory, cash & installment sales, rentals, debt tracking, financial reports, RBAC, push notifications, and PWA.", madeFor: "Car Dealership Client", tech: ["PHP", "MySQL", "PWA", "Push"], image: "/images/projects/bradar.png", category: "software", status: "Completed", link: "/xara" },
+  { year: "2025", title: "Dyari — Advanced Car Dealership", description: "Enhanced dealership system with dual-database architecture, batch car imports, individual & gallery deposit tracking, advance payments, and automated receipts.", madeFor: "Car Dealership Client", tech: ["PHP", "MySQL", "Dual DB", "PWA"], image: "/images/projects/dyari-car.png", category: "software", status: "Completed", link: "/diari" },
   { year: "2025", title: "ID Kurdm — AI Platform", description: "Comprehensive AI API integration project mastering agent orchestration and large-scale architecture.", madeFor: "Personal R&D", tech: ["Python", "AI Agents", "API"], image: "/images/projects/id-kurdm.jpg", category: "software", status: "Completed", link: "#" },
   { year: "2025", title: "AI Social Media Responder", description: "Self-trained AI that responds to customer inquiries with company profiles and pricing.", madeFor: "Small Business", tech: ["NLP", "Automation", "API"], image: "/images/projects/ai-social-responder.jpg", category: "software", status: "Conceptualized", link: "#", archived: true },
   { year: "2024", title: "Home System", description: "Smart home integrating five sensor-based mini-projects on Arduino into one comprehensive system.", madeFor: "TIU / LFU / NICER", tech: ["Arduino", "IoT", "Sensors"], image: "/images/projects/home-system.jpg", category: "hardware", status: "Completed", link: "#" },
@@ -97,32 +35,8 @@ const archiveProjects: ArchiveProject[] = [
   { year: "2024", title: "Glove Talk", description: "Speech-enabled glove converting sign language to speech and text for ~250K people in Kurdistan.", madeFor: "Accessibility", tech: ["Robotics", "AI", "NLP"], image: "/images/projects/glove-talk.jpg", category: "hardware", status: "Conceptualized", link: "#", archived: true },
   { year: "2024", title: "Portfolio v2", description: "Personal portfolio website with 3D scenes, GSAP animations, and cinematic design system.", madeFor: "Personal", tech: ["Next.js", "Tailwind", "GSAP"], image: "/images/projects/portfolio-v2.jpg", category: "software", status: "Completed", link: "https://ibrahim-eng.dev", archived: true },
   { year: "2024", title: "Erbil Chess Academy", description: "Chess academy website with member registration, tournament tracking, and live game features.", madeFor: "Chess Club", tech: ["HTML", "CSS", "JS"], image: "/images/projects/erbil-chess.jpg", category: "software", status: "Completed", link: "/ches" },
-  {
-    year: "2025",
-    title: "True Prence",
-    description: "Eliminating manual attendance and proxy sign-ins — the camera marks 20 students present per frame, with full audit reports.",
-    problem: "Manual attendance is slow, error-prone, and easily gamed by proxy attendance — in classrooms and workplaces alike.",
-    impact: "Passive zero-interaction attendance: students are marked present simply by being visible to the camera. Exports to Excel/PDF and Matplotlib analytics.",
-    madeFor: "Universities & Companies",
-    tech: ["Python", "OpenCV", "face_recognition", "SQLite", "CNN"],
-    image: "/images/projects/true-prence.jpg",
-    category: "software",
-    status: "Completed",
-    link: "/attendance",
-  },
-  {
-    year: "2025",
-    title: "Signed Language",
-    description: "Making sign-language communication accessible to ~250,000 Kurds with hearing or speech difficulties — using only a regular laptop camera.",
-    problem: "~250,000 people in Kurdistan need accessible communication tools, but specialized hardware is costly and unavailable.",
-    impact: "Software-only gesture recognition that works on any standard webcam — proves accessible communication tech doesn’t need expensive hardware.",
-    madeFor: "Accessibility / R&D",
-    tech: ["Python", "MediaPipe", "KNN", "OpenCV", "scikit-learn"],
-    image: "/images/projects/signed-language.jpg",
-    category: "software",
-    status: "Completed",
-    link: "/gestures",
-  },
+  { year: "2025", title: "True Prence", description: "AI face recognition attendance system recognizing up to 20 faces per frame simultaneously. CNN/HOG detection, SQLite storage, Excel/PDF export, and Matplotlib analytics.", madeFor: "Universities & Companies", tech: ["Python", "OpenCV", "face_recognition", "SQLite", "CNN"], image: "/images/projects/true-prence.jpg", category: "software", status: "Completed", link: "/attendance" },
+  { year: "2025", title: "Signed Language", description: "Real-time gesture recognition using MediaPipe hand/body tracking and a custom-trained KNN ML model with incremental learning, augmentation, and confidence scoring.", madeFor: "Accessibility / R&D", tech: ["Python", "MediaPipe", "KNN", "OpenCV", "scikit-learn"], image: "/images/projects/signed-language.jpg", category: "software", status: "Completed", link: "/gestures" },
   { year: "2023", title: "Kurdistan CTF Tools", description: "Custom security tools built for CTF competitions including exploit frameworks and analysis tools.", madeFor: "CTF Competition", tech: ["Python", "Security"], image: "/images/projects/ctf-tools.jpg", category: "software", status: "Completed", link: "#", archived: true },
   { year: "2023", title: "CodeX Examination Prep", description: "National exam preparation platform with algorithmic problem solving and practice modules.", madeFor: "National Exam", tech: ["C++", "Algorithms"], image: "/images/projects/codex-prep.jpg", category: "software", status: "Completed", link: "#", archived: true },
 ];
@@ -212,27 +126,9 @@ function ArchiveCard({ project, index }: { project: ArchiveProject; index: numbe
                 {project.status}
               </span>
             </div>
-            <p className="text-sm text-gray-400 mb-3 leading-relaxed line-clamp-3">
+            <p className="text-sm text-gray-400 mb-1.5 leading-relaxed line-clamp-2">
               {project.description}
             </p>
-
-            {(project.problem || project.impact) && (
-              <div className="space-y-2 mb-3 pl-3 border-l border-accent/20">
-                {project.problem && (
-                  <div className="flex gap-2 text-[11px] leading-relaxed">
-                    <span className="font-mono uppercase tracking-wider text-accent/70 shrink-0">Problem</span>
-                    <span className="text-gray-500 line-clamp-2">{project.problem}</span>
-                  </div>
-                )}
-                {project.impact && (
-                  <div className="flex gap-2 text-[11px] leading-relaxed">
-                    <span className="font-mono uppercase tracking-wider text-accent-light/80 shrink-0">Result</span>
-                    <span className="text-gray-400 line-clamp-2">{project.impact}</span>
-                  </div>
-                )}
-              </div>
-            )}
-
             <p className="text-[11px] text-subtle mb-4">
               Made for <span className="text-accent/70">{project.madeFor}</span>
             </p>
@@ -299,14 +195,13 @@ export default function ArchivePage() {
           >
             <div className="grid lg:grid-cols-5 gap-8 items-end">
               <div className="lg:col-span-3">
-                <span className="overline text-accent/70">{"// Case Studies"}</span>
+                <span className="overline text-accent/70">{"// All Work"}</span>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gradient mt-4">
-                  Problems I&apos;ve Solved
+                  Project Archive
                 </h1>
                 <p className="text-sm sm:text-base text-muted mt-4 max-w-xl leading-relaxed">
-                  Each project below is a real business problem &mdash; not a demo.
-                  Multilingual AI agents, RTL Kurdish operations platforms, and computer
-                  vision systems shipped for real clients.
+                  A complete archive of every project I&apos;ve built, from AI platforms
+                  and embedded systems to web applications and experimental tools.
                 </p>
                 <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-6" />
               </div>

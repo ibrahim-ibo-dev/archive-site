@@ -5,9 +5,19 @@ import Link from "next/link";
 import Image from "next/image";
 
 /* ══════════════════════════════════════════════
-   Bradaran — Car Dealership Management
-   Moving a Kurdish dealership off paper, onto a single RTL platform.
+   Bradaran Case Study — Car Dealership Management System
+   Built for a real client — hosted, domain pending
    ══════════════════════════════════════════════ */
+
+const techStack = [
+  "PHP",
+  "MySQL",
+  "PDO",
+  "PWA",
+  "Push Notifications",
+  "RBAC",
+  "RTL Kurdish",
+];
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -16,96 +26,7 @@ const fadeUp = {
   transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
 };
 
-const techStack = [
-  "PHP",
-  "MySQL",
-  "PDO",
-  "PWA",
-  "Web Push (VAPID)",
-  "RBAC",
-  "RTL Kurdish",
-];
-
-const stats = [
-  { label: "Client", value: "Car Dealership" },
-  { label: "Region", value: "Kurdistan" },
-  { label: "Status", value: "Live", note: "private hosting" },
-  { label: "Workflows", value: "Sales · Rental · Debt" },
-];
-
-const principles = [
-  {
-    step: "Principle 01",
-    title: "Replace the spreadsheet, don't re-invent it",
-    desc: "The dealership already had workflows that worked on paper. The system mirrors them digitally before adding anything new.",
-  },
-  {
-    step: "Principle 02",
-    title: "Built for the phone, not the desk",
-    desc: "Owners walk the lot, talk to customers, and check installments from a moving car. The PWA had to feel native on mobile.",
-  },
-  {
-    step: "Principle 03",
-    title: "Money is the most important data",
-    desc: "Sales, debts, installments, and rental payments all needed receipts, audit trails, and cancellation safety nets from day one.",
-  },
-];
-
-const buildItems = [
-  {
-    tag: "Inventory",
-    title: "Car lifecycle in one record",
-    challenge: "A car moves between states (available → rented → sold → cancelled). Tracking that across paper records was where data went missing.",
-    decision: "Each car has a single record with full history: brand, plate, purchase price, sale price, status, sale history, rental history, and document status — all in one place.",
-  },
-  {
-    tag: "Sales",
-    title: "Cash and installment as separate flows",
-    challenge: "Cash sales finish in minutes. Installment sales last for years and require monthly tracking. Forcing them into one form would have broken both.",
-    decision: "Two distinct sale flows: quick cash for fast transactions, and full installment with down-payment, monthly schedule, guarantor info, and per-payment history.",
-  },
-  {
-    tag: "Rentals",
-    title: "Monthly + hourly rental engine",
-    challenge: "The dealership rents out cars at different rates and needs to track damage, returns, and overdue payments separately from sales.",
-    decision: "Built a rental module with renter info, guarantor, monthly/hourly rates, damage fees, expected return date, condition notes on return, and printable receipts.",
-  },
-  {
-    tag: "Finance",
-    title: "Two debt systems",
-    challenge: "Overdue rental debts and general business debts behave differently — one is tied to a car, the other isn't. Mixing them created reporting chaos.",
-    decision: "Separated rental debts (tied to a rental record) from general debts. Each tracks borrower, guarantor, total, remaining balance, partial payments, and status — pending, partial, or paid.",
-  },
-  {
-    tag: "Access",
-    title: "Super-admin vs admin RBAC",
-    challenge: "Owners shouldn't expose financial reports to every staff member. Staff still need to log sales without seeing profit.",
-    decision: "Two roles: super admin (full access + financial reports) and admin (operational only). Every action is logged with timestamps and admin id for audit.",
-  },
-  {
-    tag: "Mobile",
-    title: "PWA + push notifications",
-    challenge: "Owners need to know when an installment is due or a rental is overdue, without checking the dashboard every hour.",
-    decision: "Built it as an installable Progressive Web App with VAPID-based web push notifications for due installments, overdue rentals, and key events.",
-  },
-];
-
-const lessons = [
-  {
-    title: "Before automating, mirror the paper workflow exactly",
-    desc: "The dealership had decades of habits encoded in their paper system. Forcing a 'cleaner' digital workflow would have broken trust on day one. The system replaced paper, then improved it.",
-  },
-  {
-    title: "Money workflows need cancellation, not just creation",
-    desc: "The most-asked-for feature post-launch was 'undo a sale'. Cars get accidentally marked sold; deposits get logged twice. Sale cancellation with full audit trail was non-negotiable.",
-  },
-  {
-    title: "Owners measure success in receipts, not dashboards",
-    desc: "Pretty charts impressed nobody. Printable, professional receipts for every payment made the system feel real to the customers buying cars and the staff handing them over.",
-  },
-];
-
-export default function BradaranCaseStudy() {
+export default function XaraCaseStudy() {
   return (
     <div className="min-h-screen bg-primary text-white selection:bg-accent/30 selection:text-white">
       {/* ── Nav ── */}
@@ -121,7 +42,7 @@ export default function BradaranCaseStudy() {
             <span>Back to Archive</span>
           </Link>
           <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide bg-gray-800/50 border border-gray-700 text-gray-400">
-            🔒 Private Client
+            Domain Pending
           </span>
         </div>
       </header>
@@ -138,7 +59,7 @@ export default function BradaranCaseStudy() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="overline text-accent/70"
             >
-              {"// Case Study · 2025 · Client Project"}
+              {"// Client Project / 2025"}
             </motion.span>
 
             <motion.h1
@@ -147,10 +68,12 @@ export default function BradaranCaseStudy() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mt-4 sm:mt-6"
             >
-              <span className="text-gradient">Moving a dealership</span>
+              <span className="text-gradient">
+                Bradaran
+              </span>
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light">
-                off paper, into one platform
+                Car Dealership Management
               </span>
             </motion.h1>
 
@@ -160,9 +83,10 @@ export default function BradaranCaseStudy() {
               transition={{ duration: 0.7, delay: 0.4 }}
               className="mt-4 sm:mt-6 text-sm sm:text-base text-muted max-w-2xl mx-auto leading-relaxed px-2"
             >
-              Bradaran is a complete car dealership management system built for a real Kurdish client &mdash;
-              <span className="text-white/90"> inventory, cash and installment sales, rentals, debt tracking, financial reports, multi-admin RBAC, push notifications</span>,
-              all in <span className="text-white/90">RTL Kurdish</span>, all in one PWA the owner can run from their phone.
+              A complete car dealership management system built for a real client.
+              Handles car inventory, cash &amp; installment sales, car rentals, debt tracking,
+              financial reports, multi-admin RBAC, push notifications, and PWA support
+              &mdash; all in RTL Kurdish.
             </motion.p>
 
             <motion.div
@@ -197,13 +121,13 @@ export default function BradaranCaseStudy() {
                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/50" />
                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/50" />
                 <div className="flex-1 ml-2 sm:ml-4">
-                  <div className="max-w-[220px] sm:max-w-xs mx-auto h-4 sm:h-5 rounded-full bg-white/[0.05] border border-border flex items-center justify-center">
-                    <span className="text-[8px] sm:text-[10px] font-mono text-subtle">bradaran &middot; private hosting</span>
+                  <div className="max-w-[200px] sm:max-w-xs mx-auto h-4 sm:h-5 rounded-full bg-white/[0.05] border border-border flex items-center justify-center">
+                    <span className="text-[8px] sm:text-[10px] font-mono text-subtle">bradaran &middot; private server</span>
                   </div>
                 </div>
               </div>
               <div className="relative aspect-[16/9] overflow-hidden">
-                <Image src="/images/projects/bradar.png" alt="Bradaran — production screenshot" fill className="object-cover object-top" sizes="(max-width:768px) 100vw,800px" priority />
+                <Image src="/images/projects/bradar.png" alt="Bradaran — screenshot" fill className="object-cover object-top" sizes="(max-width:768px) 100vw,800px" priority />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
               </div>
             </div>
@@ -211,258 +135,187 @@ export default function BradaranCaseStudy() {
         </motion.section>
 
         {/* ── Stats ── */}
-        <motion.section {...fadeUp} className="border-y border-border bg-surface/40 backdrop-blur-sm">
+        <motion.section
+          {...fadeUp}
+          className="border-y border-border bg-surface/40 backdrop-blur-sm"
+        >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
-            {stats.map((stat) => (
+            {[
+              { label: "Client", value: "Car Dealership" },
+              { label: "Location", value: "Kurdistan" },
+              { label: "Status", value: "Hosted (Domain Pending)" },
+              { label: "Type", value: "Client Project" },
+            ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-base sm:text-xl md:text-2xl font-bold text-gradient">{stat.value}</p>
-                <p className="overline text-subtle mt-1 sm:mt-2 text-[9px] sm:text-[11px]">{stat.label}</p>
-                {stat.note && <p className="text-[9px] sm:text-[10px] text-subtle/70 mt-1 italic">{stat.note}</p>}
+                <p className="text-base sm:text-xl md:text-2xl font-bold text-gradient">
+                  {stat.value}
+                </p>
+                <p className="overline text-subtle mt-1 sm:mt-2 text-[9px] sm:text-[11px]">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
         </motion.section>
 
-        {/* ── 01 · The Problem ── */}
-        <section className="py-14 sm:py-24 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/[0.03] rounded-full blur-[180px] pointer-events-none" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="mb-8 sm:mb-10">
-              <span className="overline text-accent/60">01 — The Problem</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient leading-tight">
-                A working dealership running entirely on paper, WhatsApp screenshots, and memory.
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-5" />
-            </motion.div>
-
-            <motion.div {...fadeUp} className="space-y-4 sm:space-y-5 text-sm sm:text-base text-muted leading-relaxed">
-              <p>
-                Most car dealerships in Kurdistan operate from a small office, with a notebook for cars,
-                a notebook for sales, and a notebook for who owes what. Information lives across <span className="text-white/90">three or four staff phones</span>,
-                a paper ledger, and a folder of WhatsApp screenshots labeled by date.
-              </p>
-              <p>
-                That works &mdash; until two people sell the same car, or an installment payment goes missing,
-                or a rental car comes back damaged and nobody knows who took it. Worst of all, <span className="text-white/90">the owner has no real-time view of the business</span>:
-                cash flow, debts, monthly profit, all reconstructed manually at the end of the week.
-              </p>
-              <p>
-                The client didn&apos;t need a fancy dashboard. They needed <span className="text-white/90">one place where every car, sale, rental, payment, and debt lives</span> &mdash;
-                accessible from a phone, in Kurdish, with permissions so staff couldn&apos;t see what they shouldn&apos;t.
-              </p>
-            </motion.div>
-
-            <motion.div {...fadeUp} className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-              {[
-                { label: "3+", desc: "Notebooks per dealership — cars, sales, debts, rentals, all separate" },
-                { label: "0", desc: "Real-time visibility into cash flow, profits, or outstanding debts" },
-                { label: "1 phone", desc: "One staff phone usually held all customer history — and it was always with that one person" },
-              ].map((p) => (
-                <div key={p.label} className="rounded-2xl border border-border bg-surface/40 backdrop-blur-sm p-4 sm:p-5">
-                  <p className="text-lg sm:text-xl font-bold text-accent/90">{p.label}</p>
-                  <p className="text-xs sm:text-sm text-muted mt-1.5 leading-relaxed">{p.desc}</p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ── 02 · My Approach ── */}
-        <section className="py-14 sm:py-24 relative overflow-hidden">
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-light/[0.03] rounded-full blur-[180px] pointer-events-none" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="mb-8 sm:mb-10">
-              <span className="overline text-accent/60">02 — My Approach</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient leading-tight">
-                Mirror the paper system first, then make it impossible to lose data.
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-5" />
-            </motion.div>
-
-            <motion.div {...fadeUp} className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-              {principles.map((p) => (
-                <div key={p.step} className="rounded-2xl border border-border bg-surface/40 backdrop-blur-sm p-5 hover:border-accent/15 transition-all duration-500">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-accent/70">{p.step}</span>
-                  <h3 className="text-base font-semibold text-white/90 mt-2 mb-2 leading-snug">{p.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted leading-relaxed">{p.desc}</p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ── 03 · Inside the Build ── */}
-        <section className="py-14 sm:py-24 relative overflow-hidden border-t border-border">
-          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.03] rounded-full blur-[200px] pointer-events-none" />
+        {/* ── Core Modules ── */}
+        <section className="py-12 sm:py-20 relative overflow-hidden">
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/[0.03] rounded-full blur-[180px] pointer-events-none" />
           <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
-              <span className="overline text-accent/60">03 — Inside the Build</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient">
-                Engineering decisions, not feature lists
+            <motion.div {...fadeUp} className="text-center mb-8 sm:mb-12">
+              <span className="overline text-accent/60">01 &mdash; Core Modules</span>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 sm:mt-4 text-gradient">
+                What the System Does
               </h2>
-              <p className="text-sm text-muted mt-3 max-w-2xl mx-auto leading-relaxed">
-                Each module below replaced a specific paper workflow that used to fail every week.
-              </p>
               <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-              {buildItems.map((item, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
+              {/* Inventory */}
+              <motion.div {...fadeUp} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">Inventory</span>
+                <h3 className="text-lg sm:text-xl font-bold mt-2 mb-3 text-white/90">Car Management</h3>
+                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
+                <div className="space-y-3 text-xs sm:text-sm text-muted leading-relaxed">
+                  <p>
+                    Full CRUD for cars: brand, model, year, plate number, purchase price,
+                    selling price, image uploads. Status tracking: <strong className="text-white/80">available, sold, rented</strong>.
+                  </p>
+                  <p>
+                    Each car has a detail page showing all info, sale history, rental history,
+                    and original document status.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Sales */}
+              <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">Sales</span>
+                <h3 className="text-lg sm:text-xl font-bold mt-2 mb-3 text-white/90">Cash &amp; Installment Sales</h3>
+                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
+                <div className="space-y-3 text-xs sm:text-sm text-muted leading-relaxed">
+                  <p>
+                    Two sale types: <strong className="text-white/80">cash (full payment)</strong> and <strong className="text-white/80">installment (down payment + monthly)</strong>.
+                    Buyer info, guarantor, sale date, and payment tracking all built in.
+                  </p>
+                  <p>
+                    Installment sales track every payment with date, time, amount, and notes.
+                    Quick sale mode for fast cash transactions.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Rentals */}
+              <motion.div {...fadeUp} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">Rentals</span>
+                <h3 className="text-lg sm:text-xl font-bold mt-2 mb-3 text-white/90">Car Rental System</h3>
+                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
+                <div className="space-y-3 text-xs sm:text-sm text-muted leading-relaxed">
+                  <p>
+                    Full rental workflow: renter info, guarantor, <strong className="text-white/80">monthly &amp; hourly rates</strong>,
+                    damage fees, down payment, expected return date.
+                  </p>
+                  <p>
+                    Rental payment collection, rental debt tracking, return processing
+                    with mileage and condition notes. Printable rental receipts.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Debts */}
+              <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+                <span className="overline text-accent/60 text-[9px] sm:text-[11px]">Finance</span>
+                <h3 className="text-lg sm:text-xl font-bold mt-2 mb-3 text-white/90">Debt &amp; Payment Tracking</h3>
+                <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
+                <div className="space-y-3 text-xs sm:text-sm text-muted leading-relaxed">
+                  <p>
+                    Two debt systems: <strong className="text-white/80">rental debts</strong> (from overdue rentals) and
+                    <strong className="text-white/80"> general debts</strong> (any external borrowing). Each tracks borrower,
+                    guarantor, total amount, remaining balance, and payment history.
+                  </p>
+                  <p>
+                    Partial payments supported. Status auto-updates: pending, partial, paid.
+                    Printable receipts for every payment.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── More Features ── */}
+        <section className="py-12 sm:py-20 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent-light/[0.03] rounded-full blur-[200px] pointer-events-none" />
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+            <motion.div {...fadeUp} className="text-center mb-8 sm:mb-12">
+              <span className="overline text-accent/60">02 &mdash; More Features</span>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 sm:mt-4 text-gradient">
+                System Capabilities
+              </h2>
+              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-4" />
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+              {[
+                {
+                  title: "Financial Reports",
+                  desc: "Super admin-only reports with date range filtering: total sales income, rental income, installment collections, debt summaries, and profit calculations.",
+                },
+                {
+                  title: "Multi-Admin RBAC",
+                  desc: "Role-based access: super admin (full access + reports) and regular admin (limited). Activity logging tracks every action by every admin for auditing.",
+                },
+                {
+                  title: "Push Notifications",
+                  desc: "Web push notification system using VAPID keys. Notifies admins about due installments, overdue rentals, and important events. Built with service workers.",
+                },
+                {
+                  title: "PWA Support",
+                  desc: "Progressive Web App with manifest, service worker, and installable on mobile. Works offline with cached pages. RTL Kurdish interface throughout.",
+                },
+                {
+                  title: "Printable Receipts",
+                  desc: "Professional receipt generation for sales, installment payments, rental agreements, and debt payments. Each receipt includes full transaction details.",
+                },
+                {
+                  title: "Sale Cancellation",
+                  desc: "Safe sale reversal system: cancels the sale, restores car to available status, logs the reason, and maintains full audit trail.",
+                },
+              ].map((feature) => (
                 <motion.div
-                  key={item.title}
+                  key={feature.title}
                   {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: (i % 2) * 0.08 }}
                   className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-6 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium"
                 >
-                  <span className="overline text-accent/60 text-[9px] sm:text-[11px]">{item.tag}</span>
-                  <h3 className="text-base sm:text-lg font-bold mt-2 mb-3 text-white/90 leading-snug">{item.title}</h3>
-                  <div className="w-10 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mb-4" />
-                  <div className="space-y-2.5 text-xs sm:text-sm leading-relaxed">
-                    <p>
-                      <span className="font-mono uppercase tracking-wider text-[10px] text-accent/70">Challenge</span>
-                      <br />
-                      <span className="text-muted">{item.challenge}</span>
-                    </p>
-                    <p>
-                      <span className="font-mono uppercase tracking-wider text-[10px] text-accent-light/80">Decision</span>
-                      <br />
-                      <span className="text-white/80">{item.decision}</span>
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Extra capabilities */}
-            <motion.div {...fadeUp} className="mt-10 sm:mt-14">
-              <span className="overline text-accent/60">04 — Plus</span>
-              <h3 className="text-lg sm:text-xl font-bold text-white/90 mt-2 mb-5">Capabilities the system ships with</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-                {[
-                  { title: "Financial Reports", desc: "Super-admin-only reports with date-range filtering: total sales, rental income, installment collections, debt summaries, and profit." },
-                  { title: "Activity Logging", desc: "Every action by every admin is logged with timestamp and admin id for full audit." },
-                  { title: "Printable Receipts", desc: "Professional receipts for sales, installment payments, rental agreements, and debt payments." },
-                  { title: "Sale Cancellation", desc: "Reverse a mistaken sale safely: car returns to available, reason logged, full audit preserved." },
-                  { title: "Offline-Friendly PWA", desc: "Installable Progressive Web App with service worker. Works on bad networks, on the lot, on the go." },
-                  { title: "RTL Kurdish UI", desc: "End-to-end Kurdish interface: numbers, dates, forms, error messages — all native, not translated." },
-                ].map((f) => (
-                  <div key={f.title} className="rounded-2xl border border-border bg-surface/40 backdrop-blur-sm p-5">
-                    <h4 className="text-sm sm:text-base font-semibold text-white/90 mb-2">{f.title}</h4>
-                    <p className="text-xs sm:text-sm text-muted leading-relaxed">{f.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ── 05 · The Result ── */}
-        <section className="py-14 sm:py-24 relative overflow-hidden border-t border-border">
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-[200px] pointer-events-none" />
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-10">
-              <span className="overline text-accent-light/80">05 — The Result</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient leading-tight">
-                One platform replacing every notebook, in active client use
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-5" />
-            </motion.div>
-
-            <motion.div {...fadeUp} className="rounded-2xl sm:rounded-3xl border border-accent/20 bg-accent/[0.04] p-6 sm:p-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 items-center">
-                <div>
-                  <p className="text-base sm:text-lg text-white/90 leading-relaxed font-medium">
-                    Bradaran is in active production use by the client &mdash; managing their inventory, sales, rentals, debts,
-                    and financial reporting from one PWA.
+                  <h3 className="text-sm sm:text-base font-semibold text-white/90 mb-2 sm:mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                    {feature.desc}
                   </p>
-                  <p className="text-sm text-muted mt-4 leading-relaxed">
-                    Multi-role staff each log in to their own scope. The owner sees the full picture; admins log sales and rentals without seeing profit.
-                    Every payment leaves an auditable trail and a printable receipt. Push notifications fire on due installments and overdue rentals,
-                    so the owner doesn&apos;t need to check anything &mdash; the system tells them.
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                  {[
-                    { label: "Workflows", value: "Sales · Rental · Debt" },
-                    { label: "Roles", value: "Super + Admin" },
-                    { label: "Audit", value: "Full Logging" },
-                    { label: "Mobile", value: "Installable PWA" },
-                  ].map((m) => (
-                    <div key={m.label} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
-                      <p className="text-base sm:text-lg font-bold text-gradient">{m.value}</p>
-                      <p className="text-[10px] font-mono uppercase tracking-wider text-subtle mt-1">{m.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ── 06 · Lessons ── */}
-        <section className="py-14 sm:py-24 relative overflow-hidden border-t border-border">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div {...fadeUp} className="mb-8 sm:mb-10">
-              <span className="overline text-accent/60">06 — Lessons</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 sm:mt-4 text-gradient leading-tight">
-                What this project taught me about building for real businesses
-              </h2>
-              <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-5" />
-            </motion.div>
-
-            <div className="space-y-4 sm:space-y-5">
-              {lessons.map((lesson) => (
-                <motion.div
-                  key={lesson.title}
-                  {...fadeUp}
-                  className="rounded-2xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-6 hover:border-accent/15 transition-all duration-500"
-                >
-                  <h3 className="text-base sm:text-lg font-semibold text-white/90 mb-2 leading-snug">{lesson.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted leading-relaxed">{lesson.desc}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
-
-        {/* ── See Also: Dyari ── */}
-        <motion.section {...fadeUp} className="border-t border-border bg-surface/30">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
-            <div className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-              <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accent/10 border border-accent/15 flex items-center justify-center">
-                <span className="text-lg sm:text-xl font-bold text-accent">V2</span>
-              </div>
-              <div className="flex-1 text-center sm:text-left">
-                <h3 className="text-base sm:text-lg font-bold text-white/90">There&apos;s a sequel: Dyari</h3>
-                <p className="text-xs sm:text-sm text-muted mt-1">
-                  A larger dealership needed dual-database architecture, batch imports, and finer permissions.
-                  Dyari is what Bradaran became when the requirements outgrew a single database.
-                </p>
-              </div>
-              <Link
-                href="/diari"
-                className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold border border-accent/20 bg-accent/[0.04] text-accent/90 hover:text-accent hover:border-accent/40 transition-all duration-400 ease-premium"
-              >
-                View Dyari Case Study
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </motion.section>
 
         {/* ── Bottom CTA ── */}
-        <motion.section {...fadeUp} className="border-t border-border py-14 sm:py-20 relative overflow-hidden">
+        <motion.section
+          {...fadeUp}
+          className="border-t border-border py-14 sm:py-20 relative overflow-hidden"
+        >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-accent/[0.04] rounded-full blur-[200px] pointer-events-none" />
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/50 border border-gray-700 text-gray-400 text-xs font-medium mb-6">
               <span>🔒</span>
-              <span>Hosted privately for the client &mdash; no public URL</span>
+              <span>Hosted on a private server &mdash; domain pending per client request</span>
             </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient">Bradaran is in active use</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient">
+              Bradaran Car Dealership
+            </h2>
             <p className="text-muted mt-2 sm:mt-3 text-xs sm:text-sm max-w-md mx-auto">
-              The system runs the dealership&apos;s daily operations. Public domain assignment is at the client&apos;s discretion.
+              This system is live and in active use by the client.
+              The domain will be assigned when the client is ready.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mt-8 sm:mt-10">
               <Link
@@ -472,7 +325,7 @@ export default function BradaranCaseStudy() {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                All Case Studies
+                All Projects
               </Link>
             </div>
           </div>
