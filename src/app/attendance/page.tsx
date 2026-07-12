@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 /* ══════════════════════════════════════════════
    Face Track Pro — Attendance System Case Study
@@ -101,7 +102,7 @@ export default function AttendanceCaseStudy() {
           </div>
         </section>
 
-        {/* Mock Screenshot */}
+        {/* Screenshot */}
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -116,15 +117,15 @@ export default function AttendanceCaseStudy() {
                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/50" />
                 <span className="ml-3 text-[9px] sm:text-[10px] font-mono text-subtle">Face Track Pro — Desktop App</span>
               </div>
-              <div className="relative aspect-[16/9] bg-gradient-to-br from-accent/[0.08] via-surface/60 to-accent-light/[0.05] flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-accent/15 border border-accent/20 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-accent/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                    </svg>
-                  </div>
-                  <p className="text-[10px] sm:text-xs text-subtle font-mono">Face Recognition Attendance — Tkinter Desktop UI</p>
-                </div>
+              <div className="relative aspect-[16/9] bg-[#0a0a0f]">
+                <Image
+                  src="/images/projects/face-track-pro.jpg"
+                  alt="Face Track Pro — AI face recognition attendance system desktop application"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  className="object-contain"
+                />
               </div>
             </div>
           </div>
