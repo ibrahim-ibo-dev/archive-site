@@ -239,9 +239,16 @@ export default function ArchivePage() {
 
 
           {/* ── Footer ── */}
-          <div className="mt-16 sm:mt-20 pt-8 border-t border-border text-center">
-            <p className="text-xs text-subtle font-mono">
-            </p>
+          <div className="mt-16 sm:mt-20 pt-8 border-t border-border flex flex-col items-center gap-3 text-center">
+            <a
+              href="https://github.com/ibrahim-ibo-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-subtle hover:text-accent transition-colors font-mono"
+            >
+              github.com/ibrahim-ibo-dev
+            </a>
+            <p className="text-xs text-subtle font-mono">case-study.ibrahim-eng.dev</p>
           </div>
         </div>
       </main>

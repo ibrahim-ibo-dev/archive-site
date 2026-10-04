@@ -75,6 +75,9 @@ export const metadata: Metadata = {
     },
   },
   icons: { icon: "/favicon.svg" },
+  verification: {
+    google: "wKWJrIYHPaMID1jOpJwUKL-R8gI21Ut-laoXN7f_nXk",
+  },
   other: { "theme-color": "#0A0A0F" },
 };
 
@@ -119,7 +122,7 @@ export default function RootLayout({
               },
               mainEntity: {
                 "@type": "ItemList",
-                numberOfItems: 17,
+                numberOfItems: 7,
                 itemListElement: [
                   { "@type": "ListItem", position: 1, name: "CSAI — Customer Service AI", url: "https://case-study.ibrahim-eng.dev/csai" },
                   { "@type": "ListItem", position: 2, name: "Chat Mart — Omni-Channel SaaS", url: "https://case-study.ibrahim-eng.dev/chat-mart" },
