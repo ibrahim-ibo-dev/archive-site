@@ -122,15 +122,19 @@ export default function RootLayout({
               },
               mainEntity: {
                 "@type": "ItemList",
-                numberOfItems: 7,
+                numberOfItems: 11,
                 itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "CSAI — Customer Service AI", url: "https://case-study.ibrahim-eng.dev/csai" },
-                  { "@type": "ListItem", position: 2, name: "Chat Mart — Omni-Channel SaaS", url: "https://case-study.ibrahim-eng.dev/chat-mart" },
-                  { "@type": "ListItem", position: 3, name: "Ashti Library", url: "https://case-study.ibrahim-eng.dev/ashti-library" },
-                  { "@type": "ListItem", position: 4, name: "True Prence — Face Recognition", url: "https://case-study.ibrahim-eng.dev/attendance" },
-                  { "@type": "ListItem", position: 5, name: "Signed Language Recognition", url: "https://case-study.ibrahim-eng.dev/gestures" },
-                  { "@type": "ListItem", position: 6, name: "Bradaran — Car Dealership", url: "https://case-study.ibrahim-eng.dev/xara" },
-                  { "@type": "ListItem", position: 7, name: "Dyari — Advanced Car Dealership", url: "https://case-study.ibrahim-eng.dev/diari" }
+                  { "@type": "ListItem", position: 1, name: "Rashkaw Media", url: "https://case-study.ibrahim-eng.dev/rashkaw-media" },
+                  { "@type": "ListItem", position: 2, name: "Kurdistan Weather — کەش و هەوای کوردستان", url: "https://case-study.ibrahim-eng.dev/kurdistan-weather" },
+                  { "@type": "ListItem", position: 3, name: "Kurdish Chess AI — شەترەنجی کوردی", url: "https://case-study.ibrahim-eng.dev/kurdish-chess-ai" },
+                  { "@type": "ListItem", position: 4, name: "CSAI — Customer Service AI", url: "https://case-study.ibrahim-eng.dev/csai" },
+                  { "@type": "ListItem", position: 5, name: "Chat Mart — Omni-Channel SaaS", url: "https://case-study.ibrahim-eng.dev/chat-mart" },
+                  { "@type": "ListItem", position: 6, name: "Ashti Library", url: "https://case-study.ibrahim-eng.dev/ashti-library" },
+                  { "@type": "ListItem", position: 7, name: "Bradaran — Car Dealership", url: "https://case-study.ibrahim-eng.dev/xara" },
+                  { "@type": "ListItem", position: 8, name: "Dyari — Advanced Car Dealership", url: "https://case-study.ibrahim-eng.dev/diari" },
+                  { "@type": "ListItem", position: 9, name: "True Prence — Face Recognition", url: "https://case-study.ibrahim-eng.dev/attendance" },
+                  { "@type": "ListItem", position: 10, name: "Signed Language Recognition", url: "https://case-study.ibrahim-eng.dev/gestures" },
+                  { "@type": "ListItem", position: 11, name: "Erbil Chess Academy", url: "https://case-study.ibrahim-eng.dev/ches" }
                 ]
               }
             })
