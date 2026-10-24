@@ -3,6 +3,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { visualProjects } from "@/data/visual-projects";
 
 /* ══════════════════════════════════════════════
    Archive Data — case-study.ibrahim-eng.dev
@@ -16,14 +17,18 @@ interface ArchiveProject {
   tech: string[];
   image: string;
   category: "software" | "hardware";
-  status: "Completed" | "Ongoing" | "Conceptualized";
+  status: "Completed" | "Ongoing" | "Conceptualized" | "Prototype";
   link: string;
   archived?: boolean;
 }
 
 const archiveProjects: ArchiveProject[] = [
+  ...visualProjects.map((project): ArchiveProject => ({
+    year: "2026", title: project.title, description: project.description,
+    madeFor: project.category, tech: project.tech, image: `/images/projects/${project.slug}.jpg`,
+    category: "software", status: project.status, link: `/${project.slug}`,
+  })),
   { year: "2026", title: "Rashkaw Media", description: "Full multilingual news platform built end-to-end to the client's own specification — 10 editorial sections, live sports & news coverage, currency & gold market, Kurdistan weather, public polls and surveys, and trilingual Kurdish/Arabic/English editions with a dedicated admin panel.", madeFor: "Rashkaw Media (Private Codebase)", tech: ["Next.js", "Express", "MongoDB", "TypeScript", "i18n", "RTL"], image: "/images/projects/rashkaw-media.png", category: "software", status: "Completed", link: "/rashkaw-media" },
-  { year: "2026", title: "Kurdistan Weather — کەش و هەوای کوردستان", description: "Fully Kurdish (Sorani, RTL) weather platform for 25 cities and towns across Kurdistan — live conditions, 25-hour forecast, 7-day outlook, and a dynamic sky background driven by the real weather and time of day.", madeFor: "Kurdish Speakers / Personal R&D", tech: ["Next.js 15", "React 19", "Open-Meteo API", "TypeScript", "RTL"], image: "/images/projects/kurdistan-weather.png", category: "software", status: "Completed", link: "/kurdistan-weather" },
   { year: "2026", title: "Kurdish Chess AI — شەترەنجی کوردی", description: "Full Kurdish-language chess platform with a custom minimax AI engine, Google Gemini 2.5 coach, mind-reading opponent-intent predictor, post-game analysis, and daily puzzle training — all in RTL Kurdish Sorani.", madeFor: "Kurdish Speakers / Personal R&D", tech: ["Next.js", "Gemini 2.5 Flash", "chess.js", "TypeScript", "RTL"], image: "/images/projects/kurdish-chess-ai.png", category: "software", status: "Completed", link: "/kurdish-chess-ai" },
   { year: "2025", title: "CSAI — Customer Service AI", description: "Full-stack AI customer service platform with Kurdish language support, product catalog, and admin dashboard.", madeFor: "HITEX 2025", tech: ["Next.js", "Python", "AI"], image: "/images/projects/csai.jpg", category: "software", status: "Completed", link: "/csai" },
   { year: "2025", title: "Chat Mart — Omni-Channel SaaS", description: "Evolution of CSAI into a multi-company marketplace with 5 messaging channels, Kurdish TTS voice replies, RBAC, reservation system, and PWA.", madeFor: "Businesses", tech: ["PHP", "Gemini API", "WhatsApp", "PWA"], image: "/images/projects/chat-mart.png", category: "software", status: "Completed", link: "/chat-mart" },
@@ -69,8 +74,8 @@ function ArchiveCard({ project, index }: { project: ArchiveProject; index: numbe
       >
         <div className={`relative rounded-3xl overflow-hidden group h-full border border-white/[0.05] bg-surface/60 backdrop-blur-sm shadow-card transition-all duration-500 ease-premium ${project.link !== "#" ? "cursor-pointer hover:shadow-card-hover hover:border-accent/15" : ""}`}>
           {/* Card top */}
-          <div className="relative h-52 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-accent-light/15 z-10" />
+          <div className="relative aspect-[16/10] overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-0 bg-[#12121A] z-0" />
             <Image
               src={project.image}
@@ -78,7 +83,7 @@ function ArchiveCard({ project, index }: { project: ArchiveProject; index: numbe
               fill
               loading="lazy"
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover opacity-50 group-hover:opacity-65 group-hover:scale-105 transition-all duration-500 z-[5]"
+              className="object-contain group-hover:scale-[1.02] transition-all duration-500 z-[5]"
             />
 
             {/* Category badge */}
@@ -123,7 +128,7 @@ function ArchiveCard({ project, index }: { project: ArchiveProject; index: numbe
               </h3>
               <span className={`shrink-0 px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider rounded-full border ${
                 project.status === "Completed" ? "bg-green-500/10 text-green-400 border-green-500/20" :
-                project.status === "Ongoing" ? "bg-accent/10 text-accent/80 border-accent/20" :
+                project.status === "Ongoing" || project.status === "Prototype" ? "bg-accent/10 text-accent/80 border-accent/20" :
                 "bg-gray-500/10 text-gray-400 border-gray-500/20"
               }`}>
                 {project.status}
@@ -222,7 +227,7 @@ export default function ArchivePage() {
                           : "text-subtle hover:text-white/70 border border-transparent"
                       }`}
                     >
-                      {f === "all" ? `All (${archiveProjects.length})` : f}
+                      {f === "all" ? `All (${archiveProjects.filter((project) => !project.archived).length})` : f}
                     </button>
                   ))}
                 </div>

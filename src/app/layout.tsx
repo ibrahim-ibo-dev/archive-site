@@ -122,7 +122,7 @@ export default function RootLayout({
               },
               mainEntity: {
                 "@type": "ItemList",
-                numberOfItems: 11,
+                numberOfItems: 14,
                 itemListElement: [
                   { "@type": "ListItem", position: 1, name: "Rashkaw Media", url: "https://case-study.ibrahim-eng.dev/rashkaw-media" },
                   { "@type": "ListItem", position: 2, name: "Kurdistan Weather — کەش و هەوای کوردستان", url: "https://case-study.ibrahim-eng.dev/kurdistan-weather" },
@@ -134,7 +134,10 @@ export default function RootLayout({
                   { "@type": "ListItem", position: 8, name: "Dyari — Advanced Car Dealership", url: "https://case-study.ibrahim-eng.dev/diari" },
                   { "@type": "ListItem", position: 9, name: "True Prence — Face Recognition", url: "https://case-study.ibrahim-eng.dev/attendance" },
                   { "@type": "ListItem", position: 10, name: "Signed Language Recognition", url: "https://case-study.ibrahim-eng.dev/gestures" },
-                  { "@type": "ListItem", position: 11, name: "Erbil Chess Academy", url: "https://case-study.ibrahim-eng.dev/ches" }
+                  { "@type": "ListItem", position: 11, name: "Erbil Chess Academy", url: "https://case-study.ibrahim-eng.dev/ches" },
+                  { "@type": "ListItem", position: 12, name: "Cosmic Scale", url: "https://case-study.ibrahim-eng.dev/cosmic-scale" },
+                  { "@type": "ListItem", position: 13, name: "Algorithm Playground", url: "https://case-study.ibrahim-eng.dev/algorithm-playground" },
+                  { "@type": "ListItem", position: 14, name: "GlyphCode", url: "https://case-study.ibrahim-eng.dev/glyphcode" }
                 ]
               }
             })
