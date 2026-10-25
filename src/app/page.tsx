@@ -1,264 +1,83 @@
 "use client";
-
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { visualProjects } from "@/data/visual-projects";
-
-/* ══════════════════════════════════════════════
-   Archive Data — case-study.ibrahim-eng.dev
-   ══════════════════════════════════════════════ */
-
-interface ArchiveProject {
-  year: string;
-  title: string;
-  description: string;
-  madeFor: string;
-  tech: string[];
-  image: string;
-  category: "software" | "hardware";
-  status: "Completed" | "Ongoing" | "Conceptualized" | "Prototype";
-  link: string;
-  archived?: boolean;
+import { archiveProjects, type ArchiveProject } from "@/data/archive-projects";
+const featuredOrder = ["/rashkaw-media", "/chat-mart", "/kurdish-chess-ai", "/attendance"];
+const projects = archiveProjects.filter(p => !p.archived).sort((a, b) => {
+  const rank = (p: ArchiveProject) => featuredOrder.includes(p.link) ? featuredOrder.indexOf(p.link) : 99;
+  return rank(a) - rank(b);
+});
+const filters = [{ id: "all", label: "All projects" }, { id: "software", label: "Software & AI" }, { id: "hardware", label: "Hardware" }] as const;
+type Filter = typeof filters[number]["id"];
+function Arrow({ diagonal = false }: { diagonal?: boolean }) {
+  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d={diagonal ? "M5 19 19 5M5 5h14v14" : "M4 12h16m-6-6 6 6-6 6"} /></svg>;
 }
-
-const archiveProjects: ArchiveProject[] = [
-  ...visualProjects.map((project): ArchiveProject => ({
-    year: "2026", title: project.title, description: project.description,
-    madeFor: project.category, tech: project.tech, image: `/images/projects/${project.slug}.jpg`,
-    category: "software", status: project.status, link: `/${project.slug}`,
-  })),
-  { year: "2026", title: "Rashkaw Media", description: "Full multilingual news platform built end-to-end to the client's own specification — 10 editorial sections, live sports & news coverage, currency & gold market, Kurdistan weather, public polls and surveys, and trilingual Kurdish/Arabic/English editions with a dedicated admin panel.", madeFor: "Rashkaw Media (Private Codebase)", tech: ["Next.js", "Express", "MongoDB", "TypeScript", "i18n", "RTL"], image: "/images/projects/rashkaw-media.png", category: "software", status: "Completed", link: "/rashkaw-media" },
-  { year: "2026", title: "Kurdish Chess AI — شەترەنجی کوردی", description: "Full Kurdish-language chess platform with a custom minimax AI engine, Google Gemini 2.5 coach, mind-reading opponent-intent predictor, post-game analysis, and daily puzzle training — all in RTL Kurdish Sorani.", madeFor: "Kurdish Speakers / Personal R&D", tech: ["Next.js", "Gemini 2.5 Flash", "chess.js", "TypeScript", "RTL"], image: "/images/projects/kurdish-chess-ai.png", category: "software", status: "Completed", link: "/kurdish-chess-ai" },
-  { year: "2025", title: "CSAI — Customer Service AI", description: "Full-stack AI customer service platform with Kurdish language support, product catalog, and admin dashboard.", madeFor: "HITEX 2025", tech: ["Next.js", "Python", "AI"], image: "/images/projects/csai.jpg", category: "software", status: "Completed", link: "/csai" },
-  { year: "2025", title: "Chat Mart — Omni-Channel SaaS", description: "Evolution of CSAI into a multi-company marketplace with 5 messaging channels, Kurdish TTS voice replies, RBAC, reservation system, and PWA.", madeFor: "Businesses", tech: ["PHP", "Gemini API", "WhatsApp", "PWA"], image: "/images/projects/chat-mart.png", category: "software", status: "Completed", link: "/chat-mart" },
-  { year: "2025", title: "Ashti Library", description: "Kurdish bookstore website with AI chatbot, search/filtering, admin dashboard, and WhatsApp ordering. Built for a real client in Erbil.", madeFor: "Ashti Books, Erbil", tech: ["PHP", "Gemini API", "RTL"], image: "/images/projects/ashti-library.jpg", category: "software", status: "Completed", link: "/ashti-library" },
-  { year: "2025", title: "Bradaran — Car Dealership", description: "Complete car dealership management: inventory, cash & installment sales, rentals, debt tracking, financial reports, RBAC, push notifications, and PWA.", madeFor: "Car Dealership Client", tech: ["PHP", "MySQL", "PWA", "Push"], image: "/images/projects/bradar.png", category: "software", status: "Completed", link: "/xara" },
-  { year: "2025", title: "Dyari — Advanced Car Dealership", description: "Enhanced dealership system with dual-database architecture, batch car imports, individual & gallery deposit tracking, advance payments, and automated receipts.", madeFor: "Car Dealership Client", tech: ["PHP", "MySQL", "Dual DB", "PWA"], image: "/images/projects/dyari-car.png", category: "software", status: "Completed", link: "/diari" },
-  { year: "2025", title: "ID Kurdm — AI Platform", description: "Comprehensive AI API integration project mastering agent orchestration and large-scale architecture.", madeFor: "Personal R&D", tech: ["Python", "AI Agents", "API"], image: "/images/projects/id-kurdm.jpg", category: "software", status: "Completed", link: "#" },
-  { year: "2025", title: "AI Social Media Responder", description: "Self-trained AI that responds to customer inquiries with company profiles and pricing.", madeFor: "Small Business", tech: ["NLP", "Automation", "API"], image: "/images/projects/ai-social-responder.jpg", category: "software", status: "Conceptualized", link: "#", archived: true },
-  { year: "2024", title: "Home System", description: "Smart home integrating five sensor-based mini-projects on Arduino into one comprehensive system.", madeFor: "TIU / LFU / NICER", tech: ["Arduino", "IoT", "Sensors"], image: "/images/projects/home-system.jpg", category: "hardware", status: "Completed", link: "#" },
-  { year: "2024", title: "Water Level Monitoring", description: "Real-time water tank monitoring with alerts at 15% and 80% levels and progress bar display.", madeFor: "Personal Project", tech: ["Arduino", "Sensors"], image: "/images/projects/water-level.jpg", category: "hardware", status: "Completed", link: "#" },
-  { year: "2024", title: "Hand Drones", description: "Drone with 1.2km+ range controlled via gyroscope instead of traditional joystick.", madeFor: "Personal R&D", tech: ["ESP", "Gyroscope", "Drone"], image: "/images/projects/hand-drones.jpg", category: "hardware", status: "Ongoing", link: "#", archived: true },
-  { year: "2024", title: "Glove Talk", description: "Speech-enabled glove converting sign language to speech and text for ~250K people in Kurdistan.", madeFor: "Accessibility", tech: ["Robotics", "AI", "NLP"], image: "/images/projects/glove-talk.jpg", category: "hardware", status: "Conceptualized", link: "#", archived: true },
-  { year: "2024", title: "Portfolio v2", description: "Personal portfolio website with 3D scenes, GSAP animations, and cinematic design system.", madeFor: "Personal", tech: ["Next.js", "Tailwind", "GSAP"], image: "/images/projects/portfolio-v2.jpg", category: "software", status: "Completed", link: "https://ibrahim-eng.dev", archived: true },
-  { year: "2024", title: "Erbil Chess Academy", description: "Chess academy website with member registration, tournament tracking, and live game features.", madeFor: "Chess Club", tech: ["HTML", "CSS", "JS"], image: "/images/projects/erbil-chess.jpg", category: "software", status: "Completed", link: "/ches" },
-  { year: "2025", title: "True Prence", description: "AI face recognition attendance system recognizing up to 20 faces per frame simultaneously. CNN/HOG detection, SQLite storage, Excel/PDF export, and Matplotlib analytics.", madeFor: "Universities & Companies", tech: ["Python", "OpenCV", "face_recognition", "SQLite", "CNN"], image: "/images/projects/true-prence.jpg", category: "software", status: "Completed", link: "/attendance" },
-  { year: "2025", title: "Signed Language", description: "Real-time gesture recognition using MediaPipe hand/body tracking and a custom-trained KNN ML model with incremental learning, augmentation, and confidence scoring.", madeFor: "Accessibility / R&D", tech: ["Python", "MediaPipe", "KNN", "OpenCV", "scikit-learn"], image: "/images/projects/signed-language.jpg", category: "software", status: "Completed", link: "/gestures" },
-  { year: "2023", title: "Kurdistan CTF Tools", description: "Custom security tools built for CTF competitions including exploit frameworks and analysis tools.", madeFor: "CTF Competition", tech: ["Python", "Security"], image: "/images/projects/ctf-tools.jpg", category: "software", status: "Completed", link: "#", archived: true },
-  { year: "2023", title: "CodeX Examination Prep", description: "National exam preparation platform with algorithmic problem solving and practice modules.", madeFor: "National Exam", tech: ["C++", "Algorithms"], image: "/images/projects/codex-prep.jpg", category: "software", status: "Completed", link: "#", archived: true },
-];
-
-const filters = ["all", "software", "hardware"] as const;
-type Filter = (typeof filters)[number];
-
-/* ── Card (matches portfolio ProjectCard) ── */
-
-function ArchiveCard({ project, index }: { project: ArchiveProject; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 60 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.1 }}
-      layout
-    >
-      {!project.archived && (
-      <a
-        href={project.link}
-        {...(project.link.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-        className={`block h-full ${project.link === "#" ? "pointer-events-none" : ""}`}
-      >
-        <div className={`relative rounded-3xl overflow-hidden group h-full border border-white/[0.05] bg-surface/60 backdrop-blur-sm shadow-card transition-all duration-500 ease-premium ${project.link !== "#" ? "cursor-pointer hover:shadow-card-hover hover:border-accent/15" : ""}`}>
-          {/* Card top */}
-          <div className="relative aspect-[16/10] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-[#12121A] z-0" />
-            <Image
-              src={project.image}
-              alt={`${project.title} — Project by Ibrahim Hussein`}
-              fill
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-contain group-hover:scale-[1.02] transition-all duration-500 z-[5]"
-            />
-
-            {/* Category badge */}
-            <div className="absolute top-3 left-3 z-20">
-              <span className={`px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider rounded-full backdrop-blur-sm ${
-                project.category === "software"
-                  ? "bg-accent/20 text-accent border border-accent/20"
-                  : "bg-accent-light/20 text-accent-light border border-accent-light/20"
-              }`}>
-                {project.category}
-              </span>
-            </div>
-
-            {/* View indicator on hover — only for projects with case study */}
-            {project.link !== "#" && (
-              <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="px-4 py-2 rounded-full bg-[rgba(10,10,15,0.7)] backdrop-blur-xl text-xs font-medium text-white border border-white/20">
-                  View Case Study &rarr;
-                </span>
-              </div>
-            )}
-
-            {/* Coming soon badge for projects without case study */}
-            {project.link === "#" && (
-              <div className="absolute bottom-3 right-3 z-20">
-                <span className="px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider rounded-full bg-white/[0.06] backdrop-blur-sm text-subtle border border-white/[0.08]">
-                  Coming Soon
-                </span>
-              </div>
-            )}
-
-            {/* Corner accents */}
-            <div className="absolute top-2 left-2 w-5 h-5 border-l border-t border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
-            <div className="absolute bottom-2 right-2 w-5 h-5 border-r border-b border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
-          </div>
-
-          {/* Content */}
-          <div className="p-6">
-            <div className="flex items-start justify-between gap-2 mb-2">
-              <h3 className="text-lg font-bold group-hover:text-gradient transition-all duration-300 line-clamp-1">
-                {project.title}
-              </h3>
-              <span className={`shrink-0 px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider rounded-full border ${
-                project.status === "Completed" ? "bg-green-500/10 text-green-400 border-green-500/20" :
-                project.status === "Ongoing" || project.status === "Prototype" ? "bg-accent/10 text-accent/80 border-accent/20" :
-                "bg-gray-500/10 text-gray-400 border-gray-500/20"
-              }`}>
-                {project.status}
-              </span>
-            </div>
-            <p className="text-sm text-gray-400 mb-1.5 leading-relaxed line-clamp-2">
-              {project.description}
-            </p>
-            <p className="text-[11px] text-subtle mb-4">
-              Made for <span className="text-accent/70">{project.madeFor}</span>
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {project.tech.map((t) => (
-                <span
-                  key={t}
-                  className="px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-accent/10 text-accent/80 border border-accent/10"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </a>
-      )}
-    </motion.div>
-  );
+function ProjectCard({ project, index }: { project: ArchiveProject; index: number }) {
+  const isLinked = project.link !== "#";
+  const content = <>
+    <div className="archive-card-image">
+      <Image src={project.image} alt={`${project.title} — project preview`} fill sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw" className="archive-project-image" />
+      <span className="archive-card-index">{String(index + 1).padStart(2, "0")}</span>
+      {isLinked && <span className="archive-card-open"><Arrow diagonal /></span>}
+    </div>
+    <div className="archive-card-body">
+      <div className="archive-card-meta"><span>{project.category === "hardware" ? "Embedded systems" : project.madeFor.includes("Rashkaw") ? "Client platform" : "Software & AI"}</span><span>{project.year}</span></div>
+      <h3>{project.title}</h3><p>{project.description}</p>
+      <div className="archive-card-tech">{project.tech.slice(0, 3).map(t => <span key={t}>{t}</span>)}</div>
+      <div className="archive-card-bottom"><span className={project.status === "Prototype" ? "project-status prototype" : "project-status"}><i />{project.status}</span><span>{isLinked ? "Read case study" : "Case study in preparation"}{isLinked && <Arrow />}</span></div>
+    </div>
+  </>;
+  return <article className="archive-project-card">{isLinked ? <a href={project.link} aria-label={`Read the ${project.title} case study`}>{content}</a> : <div>{content}</div>}</article>;
 }
-
-/* ══════════════════════════════════════════════
-   Page
-   ══════════════════════════════════════════════ */
-
 export default function ArchivePage() {
   const [filter, setFilter] = useState<Filter>("all");
-
-  const filtered = filter === "all"
-    ? archiveProjects
-    : archiveProjects.filter((p) => p.category === filter);
-
-  return (
-    <div className="min-h-screen bg-primary text-white selection:bg-accent/30 selection:text-white">
-      {/* ── Nav ── */}
-      <header className="sticky top-0 z-50 border-b border-border bg-primary/80 backdrop-blur-2xl shadow-card">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <a
-            href="https://ibrahim-eng.dev"
-            className="inline-flex items-center gap-2 text-sm text-subtle hover:text-white transition-all duration-400 ease-premium"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-            <span>Ibrahim&apos;s Portfolio</span>
-          </a>
-          <span className="overline text-accent/50">
-            Project Archive
-          </span>
+  const [query, setQuery] = useState("");
+  const filtered = projects.filter(p => (filter === "all" || p.category === filter) && `${p.title} ${p.description} ${p.tech.join(" ")} ${p.madeFor}`.toLowerCase().includes(query.trim().toLowerCase()));
+  const reset = () => { setFilter("all"); setQuery(""); };
+  return <div className="archive-page">
+    <a className="archive-skip" href="#work">Skip to projects</a>
+    <header className="archive-nav">
+      <a className="archive-brand" href="https://ibrahim-eng.dev" aria-label="Ibrahim Hussein portfolio"><span>IH</span><div>Ibrahim Hussein<small>ENGINEER & BUILDER</small></div></a>
+      <nav aria-label="Main navigation"><a href="#work">The work</a><a href="#approach">The approach</a></nav>
+      <a className="archive-nav-return" href="https://ibrahim-eng.dev">Portfolio <Arrow diagonal /></a>
+    </header>
+    <main>
+      <section className="archive-hero" aria-labelledby="archive-heading">
+        <div className="archive-atmosphere" aria-hidden="true"><span /><span /><span /></div>
+        <div className="archive-hero-content">
+          <div className="archive-eyebrow"><span /> THE PROJECT ARCHIVE <span /></div>
+          <h1 id="archive-heading">Ideas made <em>real.</em></h1>
+          <p className="archive-hero-tagline">Engineering the details. Building the experience.</p>
+          <p className="archive-hero-copy">A closer look at the platforms, AI systems and experiments<br className="desktop-break" /> I build — and the thinking that brings them to life.</p>
+          <a className="archive-button" href="#work">Explore the work <Arrow /></a>
         </div>
-      </header>
-
-      <main className="relative overflow-hidden">
-        {/* Background effects (matching portfolio) */}
-        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent/[0.04] rounded-full blur-[180px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-accent-light/[0.03] rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/12 to-transparent" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-28 relative z-10">
-          {/* ── Header ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mb-10"
-          >
-            <div className="grid lg:grid-cols-5 gap-8 items-end">
-              <div className="lg:col-span-3">
-                <span className="overline text-accent/70">{"// All Work"}</span>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gradient mt-4">
-                  Project Archive
-                </h1>
-                <p className="text-sm sm:text-base text-muted mt-4 max-w-xl leading-relaxed">
-                  A complete archive of every project I&apos;ve built, from AI platforms
-                  and embedded systems to web applications and experimental tools.
-                </p>
-                <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-6" />
-              </div>
-
-              {/* Filter tabs */}
-              <div className="lg:col-span-2 flex justify-start lg:justify-end">
-                <div className="inline-flex gap-1.5 p-1.5 rounded-full bg-surface/60 border border-white/[0.05] backdrop-blur-sm">
-                  {filters.map((f) => (
-                    <button
-                      key={f}
-                      onClick={() => setFilter(f)}
-                      className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-400 ease-premium ${
-                        filter === f
-                          ? "bg-accent/15 text-accent border border-accent/20 shadow-glow-sm"
-                          : "text-subtle hover:text-white/70 border border-transparent"
-                      }`}
-                    >
-                      {f === "all" ? `All (${archiveProjects.filter((project) => !project.archived).length})` : f}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* ── Card Grid (2 cols like portfolio) ── */}
-          <div className="grid md:grid-cols-2 gap-7">
-            <AnimatePresence mode="popLayout">
-              {filtered.filter((p) => !p.archived).map((project, i) => (
-                <ArchiveCard key={project.title} project={project} index={i} />
-              ))}
-            </AnimatePresence>
-          </div>
-
-
-          {/* ── Footer ── */}
-          <div className="mt-16 sm:mt-20 pt-8 border-t border-border flex flex-col items-center gap-3 text-center">
-            <a
-              href="https://github.com/ibrahim-ibo-dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-subtle hover:text-accent transition-colors font-mono"
-            >
-              github.com/ibrahim-ibo-dev
-            </a>
-            <p className="text-xs text-subtle font-mono">case-study.ibrahim-eng.dev</p>
-          </div>
+        <div className="archive-hero-gallery" aria-label="A preview of selected projects">
+          <a href="/cosmic-scale" className="hero-preview preview-left"><div className="preview-bar"><i /><span>EXPERIMENT / COSMIC SCALE</span><Arrow diagonal /></div><div className="preview-image"><Image src="/images/projects/cosmic-scale.jpg" alt="Cosmic Scale interactive Earth visualization" fill sizes="(max-width: 640px) 40vw, 360px" priority /></div></a>
+          <a href="/rashkaw-media" className="hero-preview preview-center"><div className="preview-bar"><i /><span>CLIENT WORK / RASHKAW MEDIA</span><Arrow diagonal /></div><div className="preview-image"><Image src="/images/projects/rashkaw-media.png" alt="Rashkaw Media multilingual news platform" fill sizes="(max-width: 640px) 70vw, 500px" priority /></div></a>
+          <a href="/kurdish-chess-ai" className="hero-preview preview-right"><div className="preview-bar"><i /><span>APPLIED AI / KURDISH CHESS</span><Arrow diagonal /></div><div className="preview-image"><Image src="/images/projects/kurdish-chess-ai.png" alt="Kurdish Chess AI game and coaching interface" fill sizes="(max-width: 640px) 40vw, 360px" priority /></div></a>
         </div>
-      </main>
-    </div>
-  );
+        <div className="archive-hero-foot"><span>FROM KURDISTAN. BUILT TO BE USED.</span><a href="#work">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
+      </section>
+      <section id="work" className="archive-work archive-container" aria-labelledby="work-heading">
+        <div className="archive-section-top"><div><span className="archive-kicker">01 / THE COLLECTION</span><h2 id="work-heading">The work.<br /><span>In full detail.</span></h2></div><p>From real client platforms to personal experiments. Explore the problem, the decisions and the finished experience.</p></div>
+        <div className="archive-toolbar">
+          <div className="archive-filters" role="group" aria-label="Filter projects">{filters.map(f => <button key={f.id} aria-pressed={filter === f.id} onClick={() => setFilter(f.id)}>{f.label}<span>{projects.filter(p => f.id === "all" || p.category === f.id).length}</span></button>)}</div>
+          <label className="archive-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 5 5" /></svg><span className="sr-only">Search projects</span><input type="search" placeholder="Search projects or technologies…" value={query} onChange={e => setQuery(e.target.value)} /></label>
+        </div>
+        <div className="archive-results-meta"><span aria-live="polite">{String(filtered.length).padStart(2, "0")} PROJECTS{query ? ` MATCHING “${query}”` : " TO EXPLORE"}</span><span>CRAFT / CODE / CURIOSITY</span></div>
+        <div className="archive-project-grid">{filtered.map(p => <ProjectCard key={p.title} project={p} index={projects.indexOf(p)} />)}</div>
+        {filtered.length === 0 && <div className="archive-empty"><h3>No projects found.</h3><p>Try a different title or technology, or explore the full collection.</p><button className="archive-button" onClick={reset}>Show all projects <Arrow /></button></div>}
+      </section>
+      <section id="approach" className="archive-approach archive-container" aria-labelledby="approach-heading">
+        <div className="archive-section-top"><div><span className="archive-kicker">02 / BEHIND THE WORK</span><h2 id="approach-heading">Different projects.<br /><span>The same care.</span></h2></div><p>Good software starts with understanding the people who will use it. The details follow from there.</p></div>
+        <div className="archive-principles">
+          <article><span className="principle-number">01</span><span className="archive-kicker">UNDERSTAND</span><h3>Start with a<br />real problem.</h3><p>Client workflows, local language and everyday needs shape what gets built.</p><span className="principle-detail">CONTEXT BEFORE CODE</span></article>
+          <article><span className="principle-number">02</span><span className="archive-kicker">ENGINEER</span><h3>Connect the<br />whole system.</h3><p>Interfaces, data and AI work together as one experience, from the first interaction to the final result.</p><span className="principle-detail">FROM INTERFACE TO INFRASTRUCTURE</span></article>
+          <article><span className="principle-number">03</span><span className="archive-kicker">REFINE</span><h3>Make the<br />details matter.</h3><p>Clear interactions, thoughtful language support and useful feedback make a system feel complete.</p><span className="principle-detail">BUILT AROUND THE USER</span></article>
+        </div>
+      </section>
+      <section className="archive-contact archive-container"><span className="archive-kicker">HAVE SOMETHING IN MIND?</span><h2>Let&apos;s build<br /><em>what&apos;s next.</em></h2><a href="https://ibrahim-eng.dev/#contact" className="archive-button">Start a conversation <Arrow diagonal /></a></section>
+    </main>
+    <footer className="archive-footer archive-container"><a href="https://ibrahim-eng.dev" className="archive-footer-name">Ibrahim Hussein<span>Computer Engineer & AI Developer</span></a><div><a href="https://github.com/ibrahim-ibo-dev">GitHub <Arrow diagonal /></a><a href="https://www.linkedin.com/in/ibrahim-hussein-b080712b7/">LinkedIn <Arrow diagonal /></a><a href="#archive-heading">Back to top ↑</a></div><p>© {new Date().getFullYear()} Ibrahim Hussein <span>CRAFTED WITH PURPOSE.</span></p></footer>
+  </div>;
 }

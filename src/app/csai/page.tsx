@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import CaseNavigation from "@/components/CaseNavigation";
 import Image from "next/image";
 
 /* ══════════════════════════════════════════════
@@ -19,7 +20,7 @@ const techStack = [
 ];
 
 const fadeUp = {
-  initial: { opacity: 0, y: 40 },
+  initial: false as const,
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
   transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
@@ -27,21 +28,11 @@ const fadeUp = {
 
 export default function CSAICaseStudy() {
   return (
-    <div className="min-h-screen bg-primary text-white selection:bg-accent/30 selection:text-white">
+    <div className="editorial-case min-h-screen bg-primary text-white selection:bg-accent/30 selection:text-white">
       {/* ══════════════════════════════════════════════
          Navigation
          ══════════════════════════════════════════════ */}
-      <header className="sticky top-0 z-50 border-b border-border bg-primary/80 backdrop-blur-2xl shadow-card">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-subtle hover:text-white transition-all duration-400 ease-premium"
-          >
-            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            <span>Back to Archive</span>
-          </Link>
+      <CaseNavigation>
           <Link
             href="/chat-mart"
             className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide bg-gradient-to-r from-accent to-accent-light text-primary shadow-glow-sm hover:shadow-glow transition-all duration-400 ease-premium"
@@ -51,19 +42,18 @@ export default function CSAICaseStudy() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
             </svg>
           </Link>
-        </div>
-      </header>
+      </CaseNavigation>
 
-      <main>
+      <main id="case-content">
         {/* ══════════════════════════════════════════════
            Hero
            ══════════════════════════════════════════════ */}
-        <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
+        <section className="editorial-hero relative py-16 sm:py-24 md:py-32 overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] bg-accent/[0.05] rounded-full blur-[200px] sm:blur-[250px] pointer-events-none" />
 
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="overline text-accent/70"
@@ -72,7 +62,7 @@ export default function CSAICaseStudy() {
             </motion.span>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mt-4 sm:mt-6"
@@ -87,7 +77,7 @@ export default function CSAICaseStudy() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
               className="mt-4 sm:mt-6 text-sm sm:text-base text-muted max-w-2xl mx-auto leading-relaxed px-2"
@@ -98,7 +88,7 @@ export default function CSAICaseStudy() {
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-10 px-2"
@@ -119,10 +109,10 @@ export default function CSAICaseStudy() {
            Hero Screenshot
            ══════════════════════════════════════════════ */}
         <motion.section
-          initial={{ opacity: 0, y: 50 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="px-4 sm:px-6 -mt-4 sm:-mt-8 mb-12 sm:mb-20"
+          className="editorial-shot px-4 sm:px-6 -mt-4 sm:-mt-8 mb-12 sm:mb-20"
         >
           <div className="max-w-5xl mx-auto">
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border shadow-card">
@@ -179,7 +169,7 @@ export default function CSAICaseStudy() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
               {/* ── The Problem ── */}
-              <motion.div {...fadeUp} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+              <motion.div {...fadeUp} className="case-panel rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
                 <span className="overline text-accent/60 text-[9px] sm:text-[11px]">
                   01 — The Problem
                 </span>
@@ -203,7 +193,7 @@ export default function CSAICaseStudy() {
               </motion.div>
 
               {/* ── The Architecture ── */}
-              <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+              <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} className="case-panel rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-8 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
                 <span className="overline text-accent/60 text-[9px] sm:text-[11px]">
                   02 — The Architecture
                 </span>
@@ -261,7 +251,7 @@ export default function CSAICaseStudy() {
                 ].map((challenge) => (
                   <div
                     key={challenge.title}
-                    className="rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-6 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium"
+                    className="case-panel rounded-2xl sm:rounded-3xl border border-border bg-surface/40 backdrop-blur-sm p-5 sm:p-6 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium"
                   >
                     <h3 className="text-sm sm:text-base font-semibold text-white/90 mb-2 sm:mb-3">
                       {challenge.title}

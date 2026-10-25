@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import CaseNavigation from "@/components/CaseNavigation";
 import { visualProjects, type VisualProject } from "@/data/visual-projects";
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -23,8 +24,7 @@ export default function VisualCaseStudy({ slug }: { slug: string }) {
   const project = visualProjects.find((item) => item.slug === slug)!;
   const next = visualProjects[(visualProjects.indexOf(project) + 1) % visualProjects.length];
   return <div className="visual-case">
-    <a className="case-skip" href="#case-content">Skip to project</a>
-    <header className="case-nav"><div className="case-container case-nav-inner"><Link href="/" className="case-back"><span aria-hidden="true">←</span> Project archive</Link><a href="https://ibrahim-eng.dev" className="case-wordmark">IBRAHIM HUSSEIN<span> / SELECTED WORK</span></a></div></header>
+    <CaseNavigation />
     <main id="case-content">
       <section className="case-hero case-container">
         <div className="case-eyebrow"><span>{project.number} — {project.category}</span><span className={`case-status ${project.status === "Prototype" ? "is-prototype" : ""}`}><i />{project.status}</span></div>
