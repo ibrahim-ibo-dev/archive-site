@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const title = "Chat Mart SaaS Case Study | Ibrahim Hussein";
 const description = "How Chat Mart evolved into a multi-company AI marketplace with five messaging channels, Kurdish voice replies, role-based access, reservations, and a PWA.";
-const image = "/images/projects/chat-mart.png";
+const image = "/images/social/chat-mart-2026-10.jpg";
 
 export const metadata: Metadata = {
   title,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "/chat-mart",
     type: "article",
     siteName: "Ibrahim Hussein — Project Archive",
-    images: [{ url: image, alt: "Chat Mart omni-channel marketplace" }],
+    images: [{ url: image, width: 1200, height: 630, type: "image/jpeg", alt: "Chat Mart omni-channel marketplace" }],
   },
   twitter: { card: "summary_large_image", title, description, images: [image] },
 };

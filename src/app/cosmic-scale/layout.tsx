@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const title = "Cosmic Scale Case Study | Ibrahim Hussein";
 const description = "A Kurdish interactive scale explorer, from a proton to the observable universe, built with logarithmic zoom, accessible controls and responsive visuals.";
-const image = "/images/projects/cosmic-scale.jpg";
+const image = "/images/social/cosmic-scale-2026-10.jpg";
 
 export const metadata: Metadata = {
   title,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "/cosmic-scale",
     type: "article",
     siteName: "Ibrahim Hussein — Project Archive",
-    images: [{ url: image, alt: "Cosmic Scale Kurdish science explorer" }],
+    images: [{ url: image, width: 1200, height: 630, type: "image/jpeg", alt: "Cosmic Scale Kurdish science explorer" }],
   },
   twitter: { card: "summary_large_image", title, description, images: [image] },
 };

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const title = "Kurdish Chess AI Case Study | Ibrahim Hussein";
 const description = "A technical case study of Kurdish Chess AI: a minimax chess engine, Gemini coaching, opponent-intent prediction, game analysis, and a Kurdish RTL interface.";
-const image = "/images/projects/kurdish-chess-ai.png";
+const image = "/images/social/kurdish-chess-ai-2026-10.jpg";
 
 export const metadata: Metadata = {
   title,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "/kurdish-chess-ai",
     type: "article",
     siteName: "Ibrahim Hussein — Project Archive",
-    images: [{ url: image, alt: "Kurdish Chess AI interface" }],
+    images: [{ url: image, width: 1200, height: 630, type: "image/jpeg", alt: "Kurdish Chess AI interface" }],
   },
   twitter: { card: "summary_large_image", title, description, images: [image] },
 };

@@ -1,0 +1,137 @@
+{
+  "home": {
+    "image": "/images/social/archive-2026-10.jpg",
+    "sourceCapture": "archive-social-home.png",
+    "sourceSha256": "492a1d459d2ab3b4bb9b3c4b208ef282ceee14b757312fbf21dd0974697dd394",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "algorithm-playground": {
+    "image": "/images/social/algorithm-playground-2026-10.jpg",
+    "sourceCapture": "archive-social-algorithm-playground.png",
+    "sourceSha256": "edfeb87f13eb3ddc88c2a6250f234b1ec6aa9cce447faf07b70757610add88a4",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "ashti-library": {
+    "image": "/images/social/ashti-library-2026-10.jpg",
+    "sourceCapture": "archive-social-ashti-library.png",
+    "sourceSha256": "81b961034b5004cd88b70cb16e8be8e4500cf0c3d1d859a176361953970fcdc8",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "attendance": {
+    "image": "/images/social/attendance-2026-10.jpg",
+    "sourceCapture": "archive-social-attendance.png",
+    "sourceSha256": "ba484d8b964e90c5127465b5654dbd2bf746cea5082d348692ce6030c6dda30c",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "chat-mart": {
+    "image": "/images/social/chat-mart-2026-10.jpg",
+    "sourceCapture": "archive-social-chat-mart.png",
+    "sourceSha256": "2d8359a3c097deccac812f4c770aa7cdfdabd04e9a144f5c1c513169f703ba17",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "ches": {
+    "image": "/images/social/ches-2026-10.jpg",
+    "sourceCapture": "archive-social-ches.png",
+    "sourceSha256": "426f7a2ab7a9132523f52bfa30856600003ad5355da21d37952db0818352bab1",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "cosmic-scale": {
+    "image": "/images/social/cosmic-scale-2026-10.jpg",
+    "sourceCapture": "archive-social-cosmic-scale.png",
+    "sourceSha256": "22395941c377292cf4a62347ffe1da8e4bf99f386004e8ee6a9c200bb3590d0b",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "csai": {
+    "image": "/images/social/csai-2026-10.jpg",
+    "sourceCapture": "archive-social-csai.png",
+    "sourceSha256": "f5f1e682e0c805a58409bb72df54261e4dcf5e8ee29ca947a32061d00828c2bd",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "diari": {
+    "image": "/images/social/diari-2026-10.jpg",
+    "sourceCapture": "archive-social-diari.png",
+    "sourceSha256": "1e1bbe450164b161ec079aca89df037f50418e2b35332fd850fe404bd79ac5d4",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "gestures": {
+    "image": "/images/social/gestures-2026-10.jpg",
+    "sourceCapture": "archive-social-gestures.png",
+    "sourceSha256": "6a0eafa0f9038406b1964db7b796e6ac40c8ae389d619dceafe35e7b0d1e556c",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "glyphcode": {
+    "image": "/images/social/glyphcode-2026-10.jpg",
+    "sourceCapture": "archive-social-glyphcode.png",
+    "sourceSha256": "fc5ff6e13e6708992304eeece7d80884017d3fc9ace6c72fec6387187e1254b4",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "kurdish-chess-ai": {
+    "image": "/images/social/kurdish-chess-ai-2026-10.jpg",
+    "sourceCapture": "archive-social-kurdish-chess-ai.png",
+    "sourceSha256": "30bd4de6736e17c0e70ab93a23b547f53ef416c85d5c9eeaf5a74d0121c14167",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "kurdistan-weather": {
+    "image": "/images/social/kurdistan-weather-2026-10.jpg",
+    "sourceCapture": "archive-social-kurdistan-weather.png",
+    "sourceSha256": "333b76b644dba8ac89e195ec664004fa239bb8904df31a89898841e1564654ed",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "rashkaw-media": {
+    "image": "/images/social/rashkaw-media-2026-10.jpg",
+    "sourceCapture": "archive-social-rashkaw-media.png",
+    "sourceSha256": "260c89ad10e547bfdcd3630ca1ce0a9d9169959f9306f5fb4564dbe8d6ec3b84",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  },
+  "xara": {
+    "image": "/images/social/xara-2026-10.jpg",
+    "sourceCapture": "archive-social-xara.png",
+    "sourceSha256": "c0fbd6b40988f449389b2cf399422c10d822b6b29c38b8913763db4490057468",
+    "capturedWidth": 1196,
+    "capturedHeight": 628,
+    "width": 1200,
+    "height": 630
+  }
+}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const title = "Bradaran Car Dealership Case Study | Ibrahim Hussein";
 const description = "A PHP and MySQL dealership management system covering inventory, installment sales, rentals, debt tracking, financial reports, permissions, and a PWA.";
-const image = "/images/projects/bradar.png";
+const image = "/images/social/xara-2026-10.jpg";
 
 export const metadata: Metadata = {
   title,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "/xara",
     type: "article",
     siteName: "Ibrahim Hussein — Project Archive",
-    images: [{ url: image, alt: "Bradaran car dealership management" }],
+    images: [{ url: image, width: 1200, height: 630, type: "image/jpeg", alt: "Bradaran car dealership management" }],
   },
   twitter: { card: "summary_large_image", title, description, images: [image] },
 };

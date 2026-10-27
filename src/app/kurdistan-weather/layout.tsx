@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const title = "Kurdistan Weather Case Study | Ibrahim Hussein";
 const description = "Building a Kurdish Sorani weather app with Next.js, Open-Meteo, hourly and seven-day forecasts, location search, caching, and weather-driven sky backgrounds.";
-const image = "/images/projects/kurdistan-weather.jpg";
+const image = "/images/social/kurdistan-weather-2026-10.jpg";
 
 export const metadata: Metadata = {
   title,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "/kurdistan-weather",
     type: "article",
     siteName: "Ibrahim Hussein — Project Archive",
-    images: [{ url: image, alt: "Kurdistan Weather Kurdish interface" }],
+    images: [{ url: image, width: 1200, height: 630, type: "image/jpeg", alt: "Kurdistan Weather Kurdish interface" }],
   },
   twitter: { card: "summary_large_image", title, description, images: [image] },
 };

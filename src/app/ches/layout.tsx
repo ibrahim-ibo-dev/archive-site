@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const title = "Erbil Chess Academy Case Study | Ibrahim Hussein";
 const description = "A Kurdish RTL website for Erbil Chess Academy, with member registration, tournament activities, content management, and an admin panel built with web technologies.";
-const image = "/images/projects/erbil-chess.jpg";
+const image = "/images/social/ches-2026-10.jpg";
 
 export const metadata: Metadata = {
   title,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "/ches",
     type: "article",
     siteName: "Ibrahim Hussein — Project Archive",
-    images: [{ url: image, alt: "Erbil Chess Academy" }],
+    images: [{ url: image, width: 1200, height: 630, type: "image/jpeg", alt: "Erbil Chess Academy" }],
   },
   twitter: { card: "summary_large_image", title, description, images: [image] },
 };
